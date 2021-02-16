@@ -45,6 +45,10 @@ void main() async {
               .replaceAll(
                 'Very Good Core',
                 '{{#titleCase}}{{project_name}}{{/titleCase}}',
+              )
+              .replaceAll(
+                'veryGoodCore',
+                '{{#camelCase}}{{project_name}}{{/camelCase}}',
               ),
         );
         final fileSegments = file.path.split('/').sublist(3);
