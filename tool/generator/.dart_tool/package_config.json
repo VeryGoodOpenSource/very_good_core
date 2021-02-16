@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "path",
-      "rootUri": "file:///Users/felix/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "rootUri": "file:///github/home/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -14,7 +14,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-02-16T03:14:17.490791Z",
+  "generated": "2021-02-16T03:25:07.083943Z",
   "generator": "pub",
-  "generatorVersion": "2.12.0-259.9.beta"
+  "generatorVersion": "2.12.0-259.0.dev"
 }
