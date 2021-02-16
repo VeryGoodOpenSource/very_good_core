@@ -51,7 +51,7 @@ void main() async {
                 '{{#camelCase}}{{project_name}}{{/camelCase}}',
               ),
         );
-        final fileSegments = file.path.split('/').sublist(3);
+        final fileSegments = file.path.split('/').sublist(2);
         if (fileSegments.contains('very_good_core')) {
           final newPathSegment = fileSegments
               .join('/')
@@ -63,11 +63,17 @@ void main() async {
         }
 
         if (fileSegments.contains('veryGoodCore')) {
-          final newPathSegment = fileSegments.join('/').replaceAll(
+          final subsegments = fileSegments.sublist(0, fileSegments.length - 1);
+          final newPathSegment = subsegments.join('/').replaceAll(
                 'veryGoodCore',
-                r'{{#camelCase}}{{project_name}}{{',
+                '{{#camelCase}}{{project_name}}{{',
               );
-          final newPath = path.join(_targetPath, newPathSegment, 'camelCase}}');
+          final newPath = path.join(
+            _targetPath,
+            newPathSegment,
+            'camelCase}}',
+            fileSegments.last,
+          );
           File(newPath).createSync(recursive: true);
           file.renameSync(newPath);
           Directory(file.parent.path).deleteSync(recursive: true);
