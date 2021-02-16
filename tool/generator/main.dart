@@ -65,9 +65,9 @@ void main() async {
         if (fileSegments.contains('veryGoodCore')) {
           final newPathSegment = fileSegments.join('/').replaceAll(
                 'veryGoodCore',
-                r'{{#camelCase}}{{project_name}}{{/camelCase}}',
+                r'{{#camelCase}}{{project_name}}{{',
               );
-          final newPath = path.join(_targetPath, newPathSegment);
+          final newPath = path.join(_targetPath, newPathSegment, 'camelCase}}');
           File(newPath).createSync(recursive: true);
           file.renameSync(newPath);
           Directory(file.parent.path).deleteSync(recursive: true);

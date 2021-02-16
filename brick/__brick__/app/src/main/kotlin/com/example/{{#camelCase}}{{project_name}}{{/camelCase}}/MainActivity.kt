@@ -1,4 +1,4 @@
-package com.example.{{project_name}}
+package com.example.{{#camelCase}}{{project_name}}{{/camelCase}}
 
 import io.flutter.embedding.android.FlutterActivity
 
