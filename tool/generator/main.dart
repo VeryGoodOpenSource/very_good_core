@@ -61,6 +61,17 @@ void main() async {
           file.renameSync(newPath);
           Directory(file.parent.path).deleteSync(recursive: true);
         }
+
+        if (fileSegments.contains('veryGoodCore')) {
+          final newPathSegment = fileSegments.join('/').replaceAll(
+                'veryGoodCore',
+                r'{{#camelCase}}{{project_name}}{{/camelCase}}',
+              );
+          final newPath = path.join(_targetPath, newPathSegment);
+          File(newPath).createSync(recursive: true);
+          file.renameSync(newPath);
+          Directory(file.parent.path).deleteSync(recursive: true);
+        }
       } catch (_) {}
     }),
   );
