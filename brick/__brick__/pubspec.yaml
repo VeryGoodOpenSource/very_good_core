@@ -18,8 +18,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  bloc_test: ^8.0.0-nullsafety.1
-  mocktail: 0.0.1-dev.12
+  bloc_test: 8.0.0-nullsafety.3
+  mocktail: 0.0.2-dev.5
   very_good_analysis: ^2.0.0
 
 flutter:
