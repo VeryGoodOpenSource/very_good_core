@@ -38,13 +38,9 @@ void main() {
       counterCubit = MockCounterCubit();
     });
 
-    tearDown(() {
-      verifyMocks(counterCubit);
-    });
-
     testWidgets('renders current count', (tester) async {
       const state = 42;
-      when(counterCubit).calls(#state).thenReturn(state);
+      when(() => counterCubit.state).thenReturn(state);
       await tester.pumpApp(
         BlocProvider.value(
           value: counterCubit,
@@ -56,8 +52,8 @@ void main() {
 
     testWidgets('calls increment when increment button is tapped',
         (tester) async {
-      when(counterCubit).calls(#state).thenReturn(0);
-      when(counterCubit).calls(#increment).thenReturn();
+      when(() => counterCubit.state).thenReturn(0);
+      when(() => counterCubit.increment()).thenReturn(null);
       await tester.pumpApp(
         BlocProvider.value(
           value: counterCubit,
@@ -65,13 +61,13 @@ void main() {
         ),
       );
       await tester.tap(find.byKey(incrementButtonKey));
-      verify(counterCubit).called(#increment).once();
+      verify(() => counterCubit.increment()).called(1);
     });
 
     testWidgets('calls decrement when decrement button is tapped',
         (tester) async {
-      when(counterCubit).calls(#state).thenReturn(0);
-      when(counterCubit).calls(#decrement).thenReturn();
+      when(() => counterCubit.state).thenReturn(0);
+      when(() => counterCubit.decrement()).thenReturn(null);
       await tester.pumpApp(
         BlocProvider.value(
           value: counterCubit,
@@ -79,7 +75,7 @@ void main() {
         ),
       );
       await tester.tap(find.byKey(decrementButtonKey));
-      verify(counterCubit).called(#decrement).once();
+      verify(() => counterCubit.decrement()).called(1);
     });
   });
 }
