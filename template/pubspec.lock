@@ -18,11 +18,9 @@ packages:
   bloc_test:
     dependency: "direct dev"
     description:
-      path: "packages/bloc_test"
-      ref: "1351c86a8e24e83b6d0211d84eff3b87fb33fe06"
-      resolved-ref: "1351c86a8e24e83b6d0211d84eff3b87fb33fe06"
-      url: "https://github.com/felangel/bloc"
-    source: git
+      name: bloc_test
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "8.0.0-nullsafety.3"
   boolean_selector:
     dependency: transitive

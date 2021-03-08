@@ -18,11 +18,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  bloc_test:
-    git:
-      url: https://github.com/felangel/bloc
-      path: packages/bloc_test
-      ref: 1351c86a8e24e83b6d0211d84eff3b87fb33fe06
+  bloc_test: 8.0.0-nullsafety.3
   mocktail: 0.0.2-dev.5
   very_good_analysis: ^2.0.0
 
