@@ -15,11 +15,28 @@ dependencies:
   flutter_bloc: ^7.0.0-nullsafety.5
   intl: ^0.17.0
 
+dependency_overrides:
+  bloc:
+    git:
+      url: https://github.com/felangel/bloc
+      path: packages/bloc
+      ref: refactor/bloc-stream-proposal
+  flutter_bloc:
+    git:
+      url: https://github.com/felangel/bloc
+      path: packages/flutter_bloc
+      ref: refactor/bloc-stream-proposal
+  bloc_test:
+    git:
+      url: https://github.com/felangel/bloc
+      path: packages/bloc_test
+      ref: refactor/bloc-stream-proposal
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   bloc_test: 8.0.0-nullsafety.5
-  mocktail: 0.1.0
+  mocktail: ^0.1.0
   very_good_analysis: ^2.0.0
 
 flutter:

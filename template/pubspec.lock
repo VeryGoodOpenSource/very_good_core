@@ -32,16 +32,20 @@ packages:
   bloc:
     dependency: "direct main"
     description:
-      name: bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "7.0.0-nullsafety.3"
+      path: "packages/bloc"
+      ref: "refactor/bloc-stream-proposal"
+      resolved-ref: "9f619def4cad747d2e9d752b608de32a720324aa"
+      url: "https://github.com/felangel/bloc"
+    source: git
+    version: "7.0.0-nullsafety.4"
   bloc_test:
     dependency: "direct dev"
     description:
-      name: bloc_test
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "packages/bloc_test"
+      ref: "refactor/bloc-stream-proposal"
+      resolved-ref: "9f619def4cad747d2e9d752b608de32a720324aa"
+      url: "https://github.com/felangel/bloc"
+    source: git
     version: "8.0.0-nullsafety.5"
   boolean_selector:
     dependency: transitive
@@ -128,9 +132,11 @@ packages:
   flutter_bloc:
     dependency: "direct main"
     description:
-      name: flutter_bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "packages/flutter_bloc"
+      ref: "refactor/bloc-stream-proposal"
+      resolved-ref: "9f619def4cad747d2e9d752b608de32a720324aa"
+      url: "https://github.com/felangel/bloc"
+    source: git
     version: "7.0.0-nullsafety.5"
   flutter_localizations:
     dependency: "direct main"
@@ -328,7 +334,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.0"
+    version: "1.8.1"
   stack_trace:
     dependency: transitive
     description:
