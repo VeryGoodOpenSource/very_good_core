@@ -1,9 +1,5 @@
 # {{#titleCase}}{{project_name}}{{/titleCase}}
 
-[![Very Good Ventures][logo]][very_good_ventures_link]
-
-Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄
-
 ![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
