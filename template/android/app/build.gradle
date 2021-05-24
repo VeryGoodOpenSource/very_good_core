@@ -47,6 +47,12 @@ android {
         versionName flutterVersionName
     }
 
+    // TODO: Remove when below fix is available in stable channel.
+    // https://github.com/flutter/flutter/pull/82309
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
     signingConfigs {
         if (System.getenv("ANDROID_KEYSTORE_PATH")) {
             release {
@@ -83,7 +89,7 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
             minifyEnabled true
             useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt')
