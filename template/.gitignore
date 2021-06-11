@@ -21,6 +21,7 @@
 .project
 .settings/
 .vscode/*
+!.vscode/extensions.json
 
 # Flutter repo-specific
 /bin/cache/
