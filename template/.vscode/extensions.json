@@ -5,6 +5,8 @@
     "dart-code.dart-code",
     "dart-code.flutter",
     "felixangelov.bloc",
-    "nash.awesome-flutter-snippets"
+    "nash.awesome-flutter-snippets",
+    "bendixma.dart-data-class-generator",
+    "vscode-icons-team.vscode-icons"
   ]
 }
