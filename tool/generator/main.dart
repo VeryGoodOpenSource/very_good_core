@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:path/path.dart' as path;
 
-final _sourcePath = path.join('template');
+final _sourcePath = path.join('app');
 final _targetPath = path.join('brick', '__brick__');
 
 const copyrightHeader = '''
