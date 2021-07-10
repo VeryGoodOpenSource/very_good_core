@@ -4,25 +4,25 @@ on:
   pull_request:
     paths:
       - ".github/workflows/very_good_core.yaml"
-      - "template/lib/**"
-      - "template/test/**"
-      - "template/pubspec.yaml"
+      - "app/lib/**"
+      - "app/test/**"
+      - "app/pubspec.yaml"
       - "tool/generator/**"
   push:
     branches:
       - main
     paths:
       - ".github/workflows/very_good_core.yaml"
-      - "template/lib/**"
-      - "template/test/**"
-      - "template/pubspec.yaml"
+      - "app/lib/**"
+      - "app/test/**"
+      - "app/pubspec.yaml"
       - "tool/generator/**"
 
 jobs:
   build:
     defaults:
       run:
-        working-directory: template
+        working-directory: app
     runs-on: ubuntu-latest
 
     steps:
@@ -45,4 +45,4 @@ jobs:
       - name: Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
-          path: template/coverage/lcov.info
+          path: app/coverage/lcov.info
