@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.{{#camelCase}}{{project_name}}{{/camelCase}}">
+    package="{{org_name.0}}.{{org_name.1}}.{{org_name.2}}">
     <!-- Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
