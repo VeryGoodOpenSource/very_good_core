@@ -7,7 +7,6 @@ final _androidPath = path.join(_targetPath, 'android', 'app', 'src', 'main', 'ko
 final _orgPath = path.join(_androidPath, 'com');
 final _staticDir = path.join('tool', 'generator', 'static');
 const copyrightHeader = '''
-
 // Copyright (c) 2021, Very Good Ventures
 // https://verygood.ventures
 //
