@@ -40,7 +40,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.{{#camelCase}}{{project_name}}{{/camelCase}}"
+        applicationId "{{org_name.0}}.{{org_name.1}}.{{org_name.2}}"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
