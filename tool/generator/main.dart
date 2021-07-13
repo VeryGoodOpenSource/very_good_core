@@ -66,42 +66,6 @@ void main() async {
           file.renameSync(newPath);
           Directory(file.parent.path).deleteSync(recursive: true);
         }
-
-        // if (fileSegments.contains('veryGoodCore')) {
-        //   final subsegments = fileSegments.sublist(0, fileSegments.length - 1);
-        //   for (var i = 0; i < fileSegments.length; i++) {
-        //     if (subsegments[i] == 'com') {
-        //       subsegments[i] = '{{org_name.0}}';
-        //     }
-        //     else if (subsegments[i] == 'example') {
-        //       subsegments[i] = '{{org_name.1}}';
-        //     }
-        //     else if (subsegments[i] == 'veryGoodCore') {
-        //       subsegments[i] = '{{org_name.2}}';
-        //     }
-        //     else continue;
-        //   }
-        //   var newPathSegment = subsegments.join('/').replaceAll(
-        //         'com',
-        //         '{{org_name.0}}',
-        //       );
-        //   newPathSegment = newPathSegment.replaceAll(
-        //         'example',
-        //         '{{org_name.1}}',
-        //       );
-        //   newPathSegment = newPathSegment.replaceAll(
-        //         'veryGoodCore',
-        //         '{{org_name.2}}',
-        //       );
-        //   final newPath = path.join(
-        //     _targetPath,
-        //     newPathSegment,
-        //     fileSegments.last,
-        //   );
-        //   File(newPath).createSync(recursive: true);
-        //   file.renameSync(newPath);
-        //   Directory(_orgPath).deleteSync(recursive: true);
-        // }
       } catch (_) {}
     }),
   );
