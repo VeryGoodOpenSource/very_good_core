@@ -3,8 +3,11 @@ import 'package:path/path.dart' as path;
 
 final _sourcePath = path.join('app');
 final _targetPath = path.join('brick', '__brick__');
-
+final _androidPath = path.join(_targetPath, 'android', 'app', 'src', 'main', 'kotlin');
+final _orgPath = path.join(_androidPath, 'com');
+final _staticDir = path.join('tool', 'generator', 'static');
 const copyrightHeader = '''
+
 // Copyright (c) 2021, Very Good Ventures
 // https://verygood.ventures
 //
@@ -22,6 +25,8 @@ void main() async {
 
   // Copy Project Files
   await Shell.cp(_sourcePath, _targetPath);
+
+  Directory(_orgPath).deleteSync(recursive: true);  
 
   // Convert Values to Variables
   await Future.wait(
@@ -47,8 +52,8 @@ void main() async {
                 '{{#titleCase}}{{project_name}}{{/titleCase}}',
               )
               .replaceAll(
-                'veryGoodCore',
-                '{{#camelCase}}{{project_name}}{{/camelCase}}',
+                'com.example.veryGoodCore',
+                '{{org_name.0}}.{{org_name.1}}.{{org_name.2}}',
               ),
         );
         final fileSegments = file.path.split('/').sublist(2);
@@ -62,24 +67,59 @@ void main() async {
           Directory(file.parent.path).deleteSync(recursive: true);
         }
 
-        if (fileSegments.contains('veryGoodCore')) {
-          final subsegments = fileSegments.sublist(0, fileSegments.length - 1);
-          final newPathSegment = subsegments.join('/').replaceAll(
-                'veryGoodCore',
-                '{{#camelCase}}{{project_name}}{{',
-              );
-          final newPath = path.join(
-            _targetPath,
-            newPathSegment,
-            'camelCase}}',
-            fileSegments.last,
-          );
-          File(newPath).createSync(recursive: true);
-          file.renameSync(newPath);
-          Directory(file.parent.path).deleteSync(recursive: true);
-        }
+        // if (fileSegments.contains('veryGoodCore')) {
+        //   final subsegments = fileSegments.sublist(0, fileSegments.length - 1);
+        //   for (var i = 0; i < fileSegments.length; i++) {
+        //     if (subsegments[i] == 'com') {
+        //       subsegments[i] = '{{org_name.0}}';
+        //     }
+        //     else if (subsegments[i] == 'example') {
+        //       subsegments[i] = '{{org_name.1}}';
+        //     }
+        //     else if (subsegments[i] == 'veryGoodCore') {
+        //       subsegments[i] = '{{org_name.2}}';
+        //     }
+        //     else continue;
+        //   }
+        //   var newPathSegment = subsegments.join('/').replaceAll(
+        //         'com',
+        //         '{{org_name.0}}',
+        //       );
+        //   newPathSegment = newPathSegment.replaceAll(
+        //         'example',
+        //         '{{org_name.1}}',
+        //       );
+        //   newPathSegment = newPathSegment.replaceAll(
+        //         'veryGoodCore',
+        //         '{{org_name.2}}',
+        //       );
+        //   final newPath = path.join(
+        //     _targetPath,
+        //     newPathSegment,
+        //     fileSegments.last,
+        //   );
+        //   File(newPath).createSync(recursive: true);
+        //   file.renameSync(newPath);
+        //   Directory(_orgPath).deleteSync(recursive: true);
+        // }
       } catch (_) {}
     }),
+  );
+
+  final mainActivityKt = File(
+    path.join(
+      _androidPath,
+      '{{org_name.0}}',
+      '{{org_name.1}}',
+      '{{org_name.2}}',
+      'MainActivity.kt',
+    ),
+  );
+
+  await Shell.mkdir(mainActivityKt.parent.path);
+  await Shell.cp(
+    path.join(_staticDir, 'MainActivity.kt'),
+    mainActivityKt.path
   );
 }
 
