@@ -3,9 +3,9 @@ import 'package:path/path.dart' as path;
 
 final _sourcePath = path.join('app');
 final _targetPath = path.join('brick', '__brick__');
-final _androidPath =
+final _androidKotlinPath =
     path.join(_targetPath, 'android', 'app', 'src', 'main', 'kotlin');
-final _orgPath = path.join(_androidPath, 'com');
+final _orgPath = path.join(_androidKotlinPath, 'com');
 final _staticDir = path.join('tool', 'generator', 'static');
 const copyrightHeader = '''
 // Copyright (c) 2021, Very Good Ventures
@@ -72,7 +72,7 @@ void main() async {
 
   final mainActivityKt = File(
     path.join(
-      _androidPath,
+      _androidKotlinPath,
       '{{#org_name}}{{.}}',
       '{{',
       'org_name}}',
