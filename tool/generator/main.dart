@@ -3,8 +3,10 @@ import 'package:path/path.dart' as path;
 
 final _sourcePath = path.join('app');
 final _targetPath = path.join('brick', '__brick__');
-final _androidPath = path.join(_targetPath, 'android', 'app', 'src', 'main', 'kotlin');
-final _orgPath = path.join(_androidPath, 'com');
+final _androidPath = path.join(_targetPath, 'android');
+final _androidKotlinPath =
+    path.join(_androidPath, 'app', 'src', 'main', 'kotlin');
+final _orgPath = path.join(_androidKotlinPath, 'com');
 final _staticDir = path.join('tool', 'generator', 'static');
 const copyrightHeader = '''
 // Copyright (c) 2021, Very Good Ventures
@@ -25,7 +27,7 @@ void main() async {
   // Copy Project Files
   await Shell.cp(_sourcePath, _targetPath);
 
-  Directory(_orgPath).deleteSync(recursive: true);  
+  Directory(_orgPath).deleteSync(recursive: true);
 
   // Convert Values to Variables
   await Future.wait(
@@ -52,7 +54,9 @@ void main() async {
               )
               .replaceAll(
                 'com.example.veryGoodCore',
-                '{{org_name.0}}.{{org_name.1}}.{{org_name.2}}',
+                path.isWithin(_androidPath, file.path)
+                    ? '{{#org_name}}{{#snakeCase}}{{value}}{{/snakeCase}}{{separator}}{{/org_name}}'
+                    : '{{#org_name}}{{#paramCase}}{{value}}{{/paramCase}}{{separator}}{{/org_name}}',
               ),
         );
         final fileSegments = file.path.split('/').sublist(2);
@@ -71,19 +75,17 @@ void main() async {
 
   final mainActivityKt = File(
     path.join(
-      _androidPath,
-      '{{org_name.0}}',
-      '{{org_name.1}}',
-      '{{org_name.2}}',
+      _androidKotlinPath,
+      '{{#org_name}}{{#snakeCase}}{{value}}{{',
+      'snakeCase}}'
+      '{{',
+      'org_name}}',
       'MainActivity.kt',
     ),
   );
 
   await Shell.mkdir(mainActivityKt.parent.path);
-  await Shell.cp(
-    path.join(_staticDir, 'MainActivity.kt'),
-    mainActivityKt.path
-  );
+  await Shell.cp(path.join(_staticDir, 'MainActivity.kt'), mainActivityKt.path);
 }
 
 class Shell {
