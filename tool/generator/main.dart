@@ -3,8 +3,9 @@ import 'package:path/path.dart' as path;
 
 final _sourcePath = path.join('app');
 final _targetPath = path.join('brick', '__brick__');
+final _androidPath = path.join(_targetPath, 'android');
 final _androidKotlinPath =
-    path.join(_targetPath, 'android', 'app', 'src', 'main', 'kotlin');
+    path.join(_androidPath, 'app', 'src', 'main', 'kotlin');
 final _orgPath = path.join(_androidKotlinPath, 'com');
 final _staticDir = path.join('tool', 'generator', 'static');
 const copyrightHeader = '''
@@ -53,7 +54,9 @@ void main() async {
               )
               .replaceAll(
                 'com.example.veryGoodCore',
-                '{{#dotCase}}{{#org_name}}{{.}} {{/org_name}}{{/dotCase}}',
+                path.isWithin(_androidPath, file.path)
+                    ? '{{#org_name}}{{#snakeCase}}{{value}}{{/snakeCase}}{{separator}}{{/org_name}}'
+                    : '{{#org_name}}{{#paramCase}}{{value}}{{/paramCase}}{{separator}}{{/org_name}}',
               ),
         );
         final fileSegments = file.path.split('/').sublist(2);
@@ -73,7 +76,7 @@ void main() async {
   final mainActivityKt = File(
     path.join(
       _androidKotlinPath,
-      '{{#org_name}}{{.}}',
+      '{{#org_name}}{{value}}',
       '{{',
       'org_name}}',
       'MainActivity.kt',
