@@ -77,7 +77,8 @@ void main() async {
     path.join(
       _androidKotlinPath,
       '{{#org_name}}{{#snakeCase}}{{value}}{{',
-      'snakeCase}}'
+      'snakeCase}}',
+      '',
       '{{',
       'org_name}}',
       'MainActivity.kt',
