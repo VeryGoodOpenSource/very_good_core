@@ -1,5 +1,5 @@
 name: {{project_name}}
-description: A new Flutter project.
+description: {{description}}
 version: 1.0.0+1
 publish_to: none
 
