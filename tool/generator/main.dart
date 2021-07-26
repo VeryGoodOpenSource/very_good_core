@@ -48,6 +48,7 @@ void main() async {
           contents
               .replaceAll('very_good_core', '{{project_name}}')
               .replaceAll('very-good-core', '{{project_name}}')
+              .replaceAll('A new Flutter project.', '{{description}}')
               .replaceAll(
                 'Very Good Core',
                 '{{#titleCase}}{{project_name}}{{/titleCase}}',
