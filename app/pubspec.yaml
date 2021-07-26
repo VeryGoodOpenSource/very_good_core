@@ -1,5 +1,5 @@
 name: very_good_core
-description: "{{description}}"
+description: {{description}}
 version: 1.0.0+1
 publish_to: none
 
