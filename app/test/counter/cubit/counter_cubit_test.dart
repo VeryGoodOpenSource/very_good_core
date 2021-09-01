@@ -16,11 +16,11 @@ void main() {
       expect: () => [equals(1)],
     );
 
-    blocTest<CounterCubit, int>(
-      'emits [-1] when decrement is called',
-      build: () => CounterCubit(),
-      act: (cubit) => cubit.decrement(),
-      expect: () => [equals(-1)],
-    );
+    // blocTest<CounterCubit, int>(
+    //   'emits [-1] when decrement is called',
+    //   build: () => CounterCubit(),
+    //   act: (cubit) => cubit.decrement(),
+    //   expect: () => [equals(-1)],
+    // );
   });
 }
