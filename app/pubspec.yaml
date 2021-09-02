@@ -25,3 +25,20 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+dependency_overrides:
+  bloc:
+    git:
+      url: https://github.com/felangel/bloc
+      path: packages/bloc
+      ref: feat/bloc-v7.2.0
+  bloc_test:
+    git:
+      url: https://github.com/felangel/bloc
+      path: packages/bloc_test
+      ref: feat/bloc-v7.2.0
+  flutter_bloc:
+    git:
+      url: https://github.com/felangel/bloc
+      path: packages/flutter_bloc
+      ref: feat/bloc-v7.2.0
