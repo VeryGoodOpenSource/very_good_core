@@ -26,13 +26,6 @@ void main() {
   });
 
   group('CounterView', () {
-    const incrementButtonKey = Key(
-      'counterView_increment_floatingActionButton',
-    );
-    const decrementButtonKey = Key(
-      'counterView_decrement_floatingActionButton',
-    );
-
     late CounterCubit counterCubit;
 
     setUp(() {
@@ -61,7 +54,7 @@ void main() {
           child: const CounterView(),
         ),
       );
-      await tester.tap(find.byKey(incrementButtonKey));
+      await tester.tap(find.byIcon(Icons.add));
       verify(() => counterCubit.increment()).called(1);
     });
 
@@ -75,7 +68,7 @@ void main() {
           child: const CounterView(),
         ),
       );
-      await tester.tap(find.byKey(decrementButtonKey));
+      await tester.tap(find.byIcon(Icons.remove));
       verify(() => counterCubit.decrement()).called(1);
     });
   });
