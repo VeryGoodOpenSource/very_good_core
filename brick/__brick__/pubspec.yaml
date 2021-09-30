@@ -1,5 +1,5 @@
-name: {{project_name}}
-description: {{description}}
+name: {{#snakeCase}}{{project_name}}{{/snakeCase}}
+description: {{#sentenceCase}}{{description}}{{/sentenceCase}}
 version: 1.0.0+1
 publish_to: none
 

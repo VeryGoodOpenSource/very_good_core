@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'package:{{project_name}}/counter/counter.dart';
+import 'package:{{#snakeCase}}{{project_name}}{{/snakeCase}}/counter/counter.dart';
 
 import '../../helpers/helpers.dart';
 
