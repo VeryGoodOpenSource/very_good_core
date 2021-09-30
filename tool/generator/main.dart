@@ -27,6 +27,7 @@ void main() async {
   // Copy Project Files
   await Shell.cp(_sourcePath, _targetPath);
 
+  // Delete Android's Organization Folder Hierarchy
   Directory(_orgPath).deleteSync(recursive: true);
 
   // Convert Values to Variables
