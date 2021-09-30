@@ -55,10 +55,7 @@ void main() async {
                 'very-good-core',
                 '{{#paramCase}}{{project_name}}{{/paramCase}}',
               )
-              .replaceAll(
-                'A new Flutter project.',
-                '{{#sentenceCase}}{{description}}{{/sentenceCase}}',
-              )
+              .replaceAll('A new Flutter project.', '{{{description}}}')
               .replaceAll(
                 'Very Good Core',
                 '{{#titleCase}}{{project_name}}{{/titleCase}}',
