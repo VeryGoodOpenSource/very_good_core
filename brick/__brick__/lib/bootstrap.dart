@@ -5,9 +5,11 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/widgets.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -21,4 +23,16 @@ class AppBlocObserver extends BlocObserver {
     log('onError(${bloc.runtimeType}, $error, $stackTrace)');
     super.onError(bloc, error, stackTrace);
   }
+}
+
+Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+  Bloc.observer = AppBlocObserver();
+  FlutterError.onError = (details) {
+    log(details.exceptionAsString(), stackTrace: details.stack);
+  };
+
+  await runZonedGuarded(
+    () async => runApp(await builder()),
+    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+  );
 }
