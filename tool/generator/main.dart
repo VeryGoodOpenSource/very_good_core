@@ -27,6 +27,7 @@ void main() async {
   // Copy Project Files
   await Shell.cp(_sourcePath, _targetPath);
 
+  // Delete Android's Organization Folder Hierarchy
   Directory(_orgPath).deleteSync(recursive: true);
 
   // Convert Values to Variables
@@ -46,9 +47,18 @@ void main() async {
         final contents = await file.readAsString();
         file = await file.writeAsString(
           contents
-              .replaceAll('very_good_core', '{{project_name}}')
-              .replaceAll('very-good-core', '{{project_name}}')
-              .replaceAll('A new Flutter project.', '{{description}}')
+              .replaceAll(
+                'very_good_core',
+                '{{#snakeCase}}{{project_name}}{{/snakeCase}}',
+              )
+              .replaceAll(
+                'very-good-core',
+                '{{#paramCase}}{{project_name}}{{/paramCase}}',
+              )
+              .replaceAll(
+                'A new Flutter project.',
+                '{{#sentenceCase}}{{description}}{{/sentenceCase}}',
+              )
               .replaceAll(
                 'Very Good Core',
                 '{{#titleCase}}{{project_name}}{{/titleCase}}',
@@ -56,15 +66,16 @@ void main() async {
               .replaceAll(
                 'com.example.veryGoodCore',
                 path.isWithin(_androidPath, file.path)
-                    ? '{{#org_name}}{{#snakeCase}}{{value}}{{/snakeCase}}{{separator}}{{/org_name}}'
-                    : '{{#org_name}}{{#paramCase}}{{value}}{{/paramCase}}{{separator}}{{/org_name}}',
+                    ? '{{#dotCase}}{{org_name}}{{/dotCase}}.{{#snakeCase}}{{project_name}}{{/snakeCase}}'
+                    : '{{#dotCase}}{{org_name}}{{/dotCase}}.{{#paramCase}}{{project_name}}{{/paramCase}}',
               ),
         );
         final fileSegments = file.path.split('/').sublist(2);
         if (fileSegments.contains('very_good_core')) {
-          final newPathSegment = fileSegments
-              .join('/')
-              .replaceAll('very_good_core', '{{project_name}}');
+          final newPathSegment = fileSegments.join('/').replaceAll(
+                'very_good_core',
+                '{{#snakeCase}}{{project_name}}{{/snakeCase}}',
+              );
           final newPath = path.join(_targetPath, newPathSegment);
           File(newPath).createSync(recursive: true);
           file.renameSync(newPath);
@@ -77,11 +88,7 @@ void main() async {
   final mainActivityKt = File(
     path.join(
       _androidKotlinPath,
-      '{{#org_name}}{{#snakeCase}}{{value}}{{',
-      'snakeCase}}',
-      '',
-      '{{',
-      'org_name}}',
+      '{{#pathCase}}{{org_name}}{{/pathCase}}',
       'MainActivity.kt',
     ),
   );
