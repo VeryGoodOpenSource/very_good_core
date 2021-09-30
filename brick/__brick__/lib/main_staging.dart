@@ -5,8 +5,8 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:{{project_name}}/app/app.dart';
-import 'package:{{project_name}}/bootstrap.dart';
+import 'package:{{#snakeCase}}{{project_name}}{{/snakeCase}}/app/app.dart';
+import 'package:{{#snakeCase}}{{project_name}}{{/snakeCase}}/bootstrap.dart';
 
 void main() {
   bootstrap(() => const App());
