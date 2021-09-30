@@ -65,8 +65,8 @@ void main() async {
               .replaceAll(
                 'com.example.veryGoodCore',
                 path.isWithin(_androidPath, file.path)
-                    ? '{{#org_name}}{{#snakeCase}}{{value}}{{/snakeCase}}{{separator}}{{/org_name}}'
-                    : '{{#org_name}}{{#paramCase}}{{value}}{{/paramCase}}{{separator}}{{/org_name}}',
+                    ? '{{#dotCase}}{{org_name}}{{/dotCase}}.{{#snakeCase}}{{project_name}}{{/snakeCase}}'
+                    : '{{#dotCase}}{{org_name}}{{/dotCase}}.{{#paramCase}}{{project_name}}{{/paramCase}}',
               ),
         );
         final fileSegments = file.path.split('/').sublist(2);
