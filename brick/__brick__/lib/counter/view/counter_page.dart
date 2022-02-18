@@ -1,4 +1,4 @@
-// Copyright (c) 2021, Very Good Ventures
+// Copyright (c) 2022, Very Good Ventures
 // https://verygood.ventures
 //
 // Use of this source code is governed by an MIT-style
