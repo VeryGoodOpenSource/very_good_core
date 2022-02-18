@@ -8,8 +8,9 @@ final _androidKotlinPath =
     path.join(_androidPath, 'app', 'src', 'main', 'kotlin');
 final _orgPath = path.join(_androidKotlinPath, 'com');
 final _staticDir = path.join('tool', 'generator', 'static');
-const copyrightHeader = '''
-// Copyright (c) 2021, Very Good Ventures
+final year = DateTime.now().year;
+final copyrightHeader = '''
+// Copyright (c) $year, Very Good Ventures
 // https://verygood.ventures
 //
 // Use of this source code is governed by an MIT-style
