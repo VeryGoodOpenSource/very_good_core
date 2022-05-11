@@ -4,7 +4,7 @@ import 'package:very_good_core/counter/counter.dart';
 import 'package:very_good_core/l10n/l10n.dart';
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
