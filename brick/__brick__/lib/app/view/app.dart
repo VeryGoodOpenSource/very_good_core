@@ -11,7 +11,7 @@ import 'package:{{#snakeCase}}{{project_name}}{{/snakeCase}}/counter/counter.dar
 import 'package:{{#snakeCase}}{{project_name}}{{/snakeCase}}/l10n/l10n.dart';
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
