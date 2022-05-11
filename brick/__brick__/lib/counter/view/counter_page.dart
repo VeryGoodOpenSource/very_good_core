@@ -11,7 +11,7 @@ import 'package:{{#snakeCase}}{{project_name}}{{/snakeCase}}/counter/counter.dar
 import 'package:{{#snakeCase}}{{project_name}}{{/snakeCase}}/l10n/l10n.dart';
 
 class CounterPage extends StatelessWidget {
-  const CounterPage({Key? key}) : super(key: key);
+  const CounterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class CounterPage extends StatelessWidget {
 }
 
 class CounterView extends StatelessWidget {
-  const CounterView({Key? key}) : super(key: key);
+  const CounterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class CounterView extends StatelessWidget {
 }
 
 class CounterText extends StatelessWidget {
-  const CounterText({Key? key}) : super(key: key);
+  const CounterText({super.key});
 
   @override
   Widget build(BuildContext context) {
