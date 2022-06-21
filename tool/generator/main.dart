@@ -8,9 +8,9 @@ final _androidKotlinPath =
     path.join(_androidPath, 'app', 'src', 'main', 'kotlin');
 final _orgPath = path.join(_androidKotlinPath, 'com');
 final _staticDir = path.join('tool', 'generator', 'static');
-final year = DateTime.now().year;
+
 final copyrightHeader = '''
-// Copyright (c) $year, Very Good Ventures
+// Copyright (c) {{current_year}}, Very Good Ventures
 // https://verygood.ventures
 //
 // Use of this source code is governed by an MIT-style
@@ -66,6 +66,10 @@ void main() async {
                 path.isWithin(_androidPath, file.path)
                     ? '{{#dotCase}}{{org_name}}{{/dotCase}}.{{#snakeCase}}{{project_name}}{{/snakeCase}}'
                     : '{{#dotCase}}{{org_name}}{{/dotCase}}.{{#paramCase}}{{project_name}}{{/paramCase}}',
+              )
+              .replaceAll(
+                'Copyright (c) 2022 Very Good Ventures',
+                'Copyright (c) {{current_year}} Very Good Ventures',
               ),
         );
         final fileSegments = file.path.split('/').sublist(2);
