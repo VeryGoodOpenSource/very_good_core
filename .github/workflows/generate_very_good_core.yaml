@@ -12,14 +12,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: google/dart:2.12-dev
     steps:
       - uses: actions/checkout@v2
 
+      - uses: dart-lang/setup-dart@v1
+
       - name: Install Dependencies
         working-directory: tool/generator
-        run: pub get
+        run: dart pub get
 
       - name: Generate Template
         run: dart ./tool/generator/main.dart
