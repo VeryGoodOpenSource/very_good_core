@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - tool/generator/**
-      - app/**
+      - src/**
     branches:
       - main
   workflow_dispatch:

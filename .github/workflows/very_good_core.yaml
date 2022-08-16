@@ -13,9 +13,9 @@ on:
       - main
     paths:
       - ".github/workflows/very_good_core.yaml"
-      - "app/lib/**"
-      - "app/test/**"
-      - "app/pubspec.yaml"
+      - "src/very_good_core/lib/**"
+      - "src/very_good_core/test/**"
+      - "src/very_good_core/pubspec.yaml"
       - "tool/generator/**"
 
 jobs:
