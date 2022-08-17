@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:path/path.dart' as path;
 
-final _sourcePath = path.join('app');
+final _sourcePath = path.join('src');
 final _targetPath = path.join('brick', '__brick__');
-final _androidPath = path.join(_targetPath, 'android');
+final _androidPath = path.join(_targetPath, 'my_app', 'android');
 final _androidKotlinPath =
     path.join(_androidPath, 'app', 'src', 'main', 'kotlin');
 final _orgPath = path.join(_androidKotlinPath, 'com');
@@ -33,7 +33,7 @@ void main() async {
 
   // Convert Values to Variables
   await Future.wait(
-    Directory(_targetPath)
+    Directory(path.join(_targetPath, 'my_app'))
         .listSync(recursive: true)
         .whereType<File>()
         .map((_) async {
@@ -48,24 +48,15 @@ void main() async {
         final contents = await file.readAsString();
         file = await file.writeAsString(
           contents
-              .replaceAll(
-                'very_good_core',
-                '{{#snakeCase}}{{project_name}}{{/snakeCase}}',
-              )
-              .replaceAll(
-                'very-good-core',
-                '{{#paramCase}}{{project_name}}{{/paramCase}}',
-              )
+              .replaceAll('very_good_core', '{{project_name.snakeCase()}}')
+              .replaceAll('very-good-core', '{{project_name.paramCase()}}')
               .replaceAll('A new Flutter project.', '{{{description}}}')
-              .replaceAll(
-                'Very Good Core',
-                '{{#titleCase}}{{project_name}}{{/titleCase}}',
-              )
+              .replaceAll('Very Good Core', '{{project_name.titleCase()}}')
               .replaceAll(
                 'com.example.veryGoodCore',
                 path.isWithin(_androidPath, file.path)
-                    ? '{{#dotCase}}{{org_name}}{{/dotCase}}.{{#snakeCase}}{{project_name}}{{/snakeCase}}'
-                    : '{{#dotCase}}{{org_name}}{{/dotCase}}.{{#paramCase}}{{project_name}}{{/paramCase}}',
+                    ? '{{org_name.dotCase()}}.{{project_name.snakeCase()}}'
+                    : '{{org_name.dotCase()}}.{{project_name.paramCase()}}',
               )
               .replaceAll(
                 'Copyright (c) 2022 Very Good Ventures',
@@ -76,27 +67,33 @@ void main() async {
         if (fileSegments.contains('very_good_core')) {
           final newPathSegment = fileSegments.join('/').replaceAll(
                 'very_good_core',
-                '{{#snakeCase}}{{project_name}}{{/snakeCase}}',
+                '{{project_name.snakeCase()}}',
               );
           final newPath = path.join(_targetPath, newPathSegment);
           File(newPath).createSync(recursive: true);
           file.renameSync(newPath);
           Directory(file.parent.path).deleteSync(recursive: true);
         }
-      } catch (_) {}
+      } catch (_) {
+        print(_);
+      }
     }),
   );
 
   final mainActivityKt = File(
     path.join(
-      _androidKotlinPath,
-      '{{#pathCase}}{{org_name}}{{/pathCase}}',
+      _androidKotlinPath.replaceAll('my_app', '{{project_name.snakeCase()}}'),
+      '{{org_name.pathCase()}}',
       'MainActivity.kt',
     ),
   );
 
   await Shell.mkdir(mainActivityKt.parent.path);
   await Shell.cp(path.join(_staticDir, 'MainActivity.kt'), mainActivityKt.path);
+  await Shell.rename(
+    path.join(_targetPath, 'my_app'),
+    path.join(_targetPath, '{{project_name.snakeCase()}}'),
+  );
 }
 
 class Shell {
@@ -106,6 +103,11 @@ class Shell {
 
   static Future<void> mkdir(String destination) {
     return _Cmd.run('mkdir', ['-p', destination]);
+  }
+
+  static Future<void> rename(String source, String destination) async {
+    await Shell.cp('$source/', destination);
+    await _Cmd.run('rm', ['-rf', source]);
   }
 }
 
