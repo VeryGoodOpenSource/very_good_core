@@ -74,9 +74,7 @@ void main() async {
           file.renameSync(newPath);
           Directory(file.parent.path).deleteSync(recursive: true);
         }
-      } catch (_) {
-        print(_);
-      }
+      } catch (_) {}
     }),
   );
 
@@ -106,7 +104,7 @@ class Shell {
   }
 
   static Future<void> rename(String source, String destination) async {
-    await Shell.cp('$source/', destination);
+    await Shell.cp('$source/', '$destination/');
     await _Cmd.run('rm', ['-rf', source]);
   }
 }
