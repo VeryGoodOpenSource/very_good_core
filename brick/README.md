@@ -90,6 +90,7 @@ _\* Learn more at [Flutter Starter App: Very Good Core & CLI][very_good_cli_blog
 [null_safety_link]: https://flutter.dev/docs/null-safety
 [testing_link]: https://flutter.dev/docs/testing
 [very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
+[very_good_cli_blog_link]: https://verygood.ventures/blog/flutter-starter-app-very-good-core-cli
 [very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
 [very_good_ventures_link]: https://verygood.ventures
 [very_good_workflows_link]: https://github.com/VeryGoodOpenSource/very_good_workflows
