@@ -22,6 +22,7 @@ Out of the box, Very Good Core includes:
 - ✅ [Logging][logging_link] - Built-in, extensible logging to capture uncaught Flutter and Dart Exceptions
 - ✅ [Very Good Analysis][very_good_analysis_link] - Strict Lint Rules which are used at [Very Good Ventures][very_good_ventures_link]
 - ✅ [Continuous Integration][github_actions_link] - Lint, format, test, and enforce code coverage using [GitHub Actions][github_actions_link]
+- ✅ Dependabot Integration
 
 _\* Learn more at [Flutter Starter App: Very Good Core & CLI][very_good_cli_blog_link]_
 
@@ -30,6 +31,7 @@ _\* Learn more at [Flutter Starter App: Very Good Core & CLI][very_good_cli_blog
 ```sh
 ├── .github
 │   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── dependabot.yaml
 │   └── workflows
 │       └── main.yaml
 ├── .gitignore
