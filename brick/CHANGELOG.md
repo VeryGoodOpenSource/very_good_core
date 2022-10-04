@@ -1,3 +1,7 @@
+# 0.1.3
+
+- feat: upgrade to Flutter 3.3.3
+
 # 0.1.2
 
 - feat: upgrade to Flutter 3.3.2
