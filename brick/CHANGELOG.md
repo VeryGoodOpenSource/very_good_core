@@ -1,3 +1,7 @@
+# 0.1.4
+
+- feat: fix dependabot config file
+
 # 0.1.3
 
 - feat: upgrade to Flutter 3.3.3
