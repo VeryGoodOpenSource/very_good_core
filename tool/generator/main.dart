@@ -18,6 +18,26 @@ final copyrightHeader = '''
 // https://opensource.org/licenses/MIT.
 ''';
 
+extension GeneratorStringX on String {
+  String replaceApplicationId(String filePath) {
+    final isAndroid = path.isWithin(_androidPath, filePath);
+
+    if (isAndroid && filePath.endsWith('build.gradle')) {
+      return replaceAll(
+        'com.example.veryGoodCore',
+        '{{application_id_android}}',
+      );
+    } else if (isAndroid) {
+      return replaceAll(
+        'com.example.veryGoodCore',
+        '{{org_name.dotCase()}}.{{project_name.snakeCase()}}',
+      );
+    } else {
+      return replaceAll('com.example.veryGoodCore', '{{application_id_ios}}');
+    }
+  }
+}
+
 void main() async {
   // Remove Previously Generated Files
   final targetDir = Directory(_targetPath);
@@ -52,12 +72,7 @@ void main() async {
               .replaceAll('very-good-core', '{{project_name.paramCase()}}')
               .replaceAll('A new Flutter project.', '{{{description}}}')
               .replaceAll('Very Good Core', '{{project_name.titleCase()}}')
-              .replaceAll(
-                'com.example.veryGoodCore',
-                path.isWithin(_androidPath, file.path)
-                    ? '{{org_name.dotCase()}}.{{project_name.snakeCase()}}'
-                    : '{{org_name.dotCase()}}.{{project_name.paramCase()}}',
-              )
+              .replaceApplicationId(file.path)
               .replaceAll(
                 'Copyright (c) 2022 Very Good Ventures',
                 'Copyright (c) {{current_year}} Very Good Ventures',
