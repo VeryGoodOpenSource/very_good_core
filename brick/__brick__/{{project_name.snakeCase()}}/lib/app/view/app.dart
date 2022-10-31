@@ -6,6 +6,7 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:{{project_name.snakeCase()}}/counter/counter.dart';
 import 'package:{{project_name.snakeCase()}}/l10n/l10n.dart';
 
@@ -21,7 +22,10 @@ class App extends StatelessWidget {
           accentColor: const Color(0xFF13B9FF),
         ),
       ),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+      ],
       supportedLocales: AppLocalizations.supportedLocales,
       home: const CounterPage(),
     );
