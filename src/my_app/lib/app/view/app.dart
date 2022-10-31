@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:very_good_core/counter/counter.dart';
 import 'package:very_good_core/l10n/l10n.dart';
 
@@ -15,10 +14,7 @@ class App extends StatelessWidget {
           accentColor: const Color(0xFF13B9FF),
         ),
       ),
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: const CounterPage(),
     );
