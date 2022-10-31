@@ -1,3 +1,8 @@
+# 0.1.5
+
+- feat: upgrade to Flutter 3.3.6
+- fix: add support for `GlobalCupertinoLocalizations`
+
 # 0.1.4
 
 - feat: fix dependabot config file
