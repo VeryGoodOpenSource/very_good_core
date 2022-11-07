@@ -11,10 +11,10 @@ void run(HookContext context) {
 
   context.vars['application_id_android'] =
       _appId(context, platform: Platform.android);
-  context.vars['application_id_ios'] = _appId(context, platform: Platform.ios);
+  context.vars['application_id'] = _appId(context);
 }
 
-String _appId(HookContext context, {required Platform platform}) {
+String _appId(HookContext context, {Platform? platform}) {
   final orgName = context.vars['org_name'];
   final projectName = context.vars['project_name'];
 

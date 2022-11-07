@@ -33,7 +33,7 @@ extension GeneratorStringX on String {
         '{{org_name.dotCase()}}.{{project_name.snakeCase()}}',
       );
     } else {
-      return replaceAll('com.example.veryGoodCore', '{{application_id_ios}}');
+      return replaceAll('com.example.veryGoodCore', '{{application_id}}');
     }
   }
 }
