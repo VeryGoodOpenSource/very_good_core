@@ -19,7 +19,7 @@ vars:
     prompt: What is the organization name?
   application_id:
     type: string
-    description: The application id on Android and Bundle ID on iOS. If omitted value will be formed by org_name + . + project_name.
+    description: The application id on Android, Bundle ID on iOS and company name on Windows. If omitted value will be formed by org_name + . + project_name.
     prompt: What is the application id?
   description:
     type: string
