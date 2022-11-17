@@ -1,3 +1,8 @@
+# 0.1.7
+
+- feat: upgrade to Flutter 3.3.8
+- feat: add optional `applicationId`
+
 # 0.1.6
 
 - feat: upgrade to Flutter 3.3.7
