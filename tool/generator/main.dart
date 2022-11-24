@@ -65,6 +65,14 @@ void main() async {
           file = await file.writeAsString('$copyrightHeader\n$contents');
         }
 
+        if (file.path.endsWith('Info.plist')) {
+          final contents = await file.readAsString();
+          file = await file.writeAsString(contents.replaceAll(
+            '<string>Very Good Core</string>',
+            r'<string>$(FLAVOR_APP_NAME)</string>',
+          ));
+        }
+
         final contents = await file.readAsString();
         file = await file.writeAsString(
           contents
@@ -78,6 +86,7 @@ void main() async {
                 'Copyright (c) {{current_year}} Very Good Ventures',
               ),
         );
+
         final fileSegments = file.path.split('/').sublist(2);
         if (fileSegments.contains('very_good_core')) {
           final newPathSegment = fileSegments.join('/').replaceAll(
