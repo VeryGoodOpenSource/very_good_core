@@ -7,8 +7,6 @@ enum Platform {
 }
 
 void run(HookContext context) {
-  context.vars['current_year'] = DateTime.now().year;
-
   context.vars['application_id_android'] =
       _appId(context, platform: Platform.android);
   context.vars['application_id'] = _appId(context);

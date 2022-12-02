@@ -9,15 +9,6 @@ final _androidKotlinPath =
 final _orgPath = path.join(_androidKotlinPath, 'com');
 final _staticDir = path.join('tool', 'generator', 'static');
 
-final copyrightHeader = '''
-// Copyright (c) {{current_year}}, Very Good Ventures
-// https://verygood.ventures
-//
-// Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file or at
-// https://opensource.org/licenses/MIT.
-''';
-
 extension GeneratorStringX on String {
   String replaceApplicationId(String filePath) {
     final isAndroid = path.isWithin(_androidPath, filePath);
@@ -60,9 +51,9 @@ void main() async {
       var file = _;
 
       try {
-        if (path.extension(file.path) == '.dart') {
-          final contents = await file.readAsString();
-          file = await file.writeAsString('$copyrightHeader\n$contents');
+        if (path.basename(file.path) == 'LICENSE') {
+          await file.delete(recursive: true);
+          return;
         }
 
         if (file.path.endsWith('Info.plist')) {
@@ -80,11 +71,7 @@ void main() async {
               .replaceAll('very-good-core', '{{project_name.paramCase()}}')
               .replaceAll('A new Flutter project.', '{{{description}}}')
               .replaceAll('Very Good Core', '{{project_name.titleCase()}}')
-              .replaceApplicationId(file.path)
-              .replaceAll(
-                'Copyright (c) 2022 Very Good Ventures',
-                'Copyright (c) {{current_year}} Very Good Ventures',
-              ),
+              .replaceApplicationId(file.path),
         );
 
         final fileSegments = file.path.split('/').sublist(2);
