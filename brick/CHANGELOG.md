@@ -1,3 +1,8 @@
+# 0.1.8
+
+- docs: remove copyright header and license from generated code
+- feat: use flavor app name for the bundle name
+
 # 0.1.7
 
 - feat: upgrade to Flutter 3.3.8
