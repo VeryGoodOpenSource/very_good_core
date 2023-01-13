@@ -1,3 +1,7 @@
+# 0.1.10
+
+- fix: pre_gen.dart recase extension fix
+
 # 0.1.9
 
 - feat: upgrade to Flutter 3.3.10
