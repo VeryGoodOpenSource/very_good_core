@@ -1,3 +1,9 @@
+# 0.1.9
+
+- feat: upgrade to Flutter 3.3.10
+- feat: upgrade to mason v0.1.0-dev.40
+- fix: use correct description in index.html
+
 # 0.1.8
 
 - docs: remove copyright header and license from generated code
