@@ -1,6 +1,8 @@
 # 0.1.9
 
-- fix: use correct description index.html
+- feat: upgrade to Flutter 3.3.10
+- feat: upgrade to mason v0.1.0-dev.40
+- fix: use correct description in index.html
 
 # 0.1.8
 
