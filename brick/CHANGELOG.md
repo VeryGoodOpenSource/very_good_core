@@ -1,3 +1,7 @@
+# 0.1.9
+
+- fix: use correct description index.html
+
 # 0.1.8
 
 - docs: remove copyright header and license from generated code
