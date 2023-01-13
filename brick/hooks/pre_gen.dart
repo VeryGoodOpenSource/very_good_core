@@ -1,5 +1,4 @@
 import 'package:mason/mason.dart';
-import 'package:recase/recase.dart';
 
 enum Platform {
   android,
@@ -19,7 +18,7 @@ String _appId(HookContext context, {Platform? platform}) {
   String? applicationId = context.vars['application_id'];
   applicationId = (applicationId?.isNotEmpty ?? false)
       ? applicationId
-      : '${orgName}.${platform == Platform.android ? ReCase(projectName).snakeCase : ReCase(projectName).paramCase}';
+      : '${orgName}.${platform == Platform.android ? projectName.snakeCase : projectName.paramCase}';
 
   return applicationId!;
 }
