@@ -1,32 +1,62 @@
 import 'dart:async';
-import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
+import 'package:chopper/chopper.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:logger/logger.dart';
+import 'package:{{project_name.snakeCase()}}/app/config/chopper_config.dart';
+import 'package:{{project_name.snakeCase()}}/app/config/url_strategy_native.dart'
+    if (dart.library.html) 'package:{{project_name.snakeCase()}}/app/config/url_strategy_web.dart';
+import 'package:{{project_name.snakeCase()}}/app/constants/enum.dart';
+import 'package:{{project_name.snakeCase()}}/app/generated/assets.gen.dart';
+import 'package:{{project_name.snakeCase()}}/app/observers/app_bloc_observer.dart';
+import 'package:{{project_name.snakeCase()}}/app/utils/injection.dart';
 
-class AppBlocObserver extends BlocObserver {
-  @override
-  void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
-    super.onChange(bloc, change);
-    log('onChange(${bloc.runtimeType}, $change)');
-  }
+Future<void> bootstrap(FutureOr<Widget> Function() builder, Env env) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  urlConfig();
+  initializeSingletons();
+  await initializeEnvironmentConfig(env);
+  await configureDependencies(env);
 
-  @override
-  void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
-    log('onError(${bloc.runtimeType}, $error, $stackTrace)');
-    super.onError(bloc, error, stackTrace);
-  }
-}
+  Bloc.observer = getIt<AppBlocObserver>();
+  final Logger logger = getIt<Logger>();
 
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
+  FlutterError.onError = (FlutterErrorDetails details) {
+    logger.e(details.exceptionAsString(), details, details.stack);
   };
-
-  Bloc.observer = AppBlocObserver();
 
   await runZonedGuarded(
     () async => runApp(await builder()),
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+    (Object error, StackTrace stackTrace) =>
+        logger.e(error.toString(), error, stackTrace),
   );
+}
+
+void initializeSingletons() {
+  getIt
+    ..registerLazySingleton<Logger>(
+      () => Logger(
+        filter: ProductionFilter(),
+        printer: PrettyPrinter(),
+        output: ConsoleOutput(),
+      ),
+    )
+    ..registerLazySingleton<ChopperClient>(() => ChopperConfig.client);
+}
+
+Future<void> initializeEnvironmentConfig(Env env) async {
+  switch (env) {
+    case Env.development:
+    case Env.test:
+      await dotenv.load(fileName: Assets.env.envDevelopment);
+      break;
+    case Env.staging:
+      await dotenv.load(fileName: Assets.env.envStaging);
+      break;
+    case Env.production:
+      await dotenv.load(fileName: Assets.env.envProduction);
+      break;
+  }
 }

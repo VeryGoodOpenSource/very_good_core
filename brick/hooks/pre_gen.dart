@@ -12,13 +12,13 @@ void run(HookContext context) {
 }
 
 String _appId(HookContext context, {Platform? platform}) {
-  final orgName = context.vars['org_name'];
-  final projectName = context.vars['project_name'];
+  final orgName = context.vars['org_name'] as String;
+  final projectName = context.vars['project_name'] as String;
 
-  String? applicationId = context.vars['application_id'];
+  var applicationId = context.vars['application_id'] as String?;
   applicationId = (applicationId?.isNotEmpty ?? false)
       ? applicationId
-      : '${orgName}.${platform == Platform.android ? projectName.snakeCase : projectName.paramCase}';
+      : '''$orgName.${projectName.snakeCase}''';
 
   return applicationId!;
 }

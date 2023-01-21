@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:path/path.dart' as path;
 
 final _sourcePath = path.join('src');
@@ -15,16 +16,16 @@ extension GeneratorStringX on String {
 
     if (isAndroid && filePath.endsWith('build.gradle')) {
       return replaceAll(
-        'com.example.veryGoodCore',
+        'com.example.very_good_core',
         '{{application_id_android}}',
       );
     } else if (isAndroid) {
       return replaceAll(
-        'com.example.veryGoodCore',
+        'com.example.very_good_core',
         '{{org_name.dotCase()}}.{{project_name.snakeCase()}}',
       );
     } else {
-      return replaceAll('com.example.veryGoodCore', '{{application_id}}');
+      return replaceAll('com.example.very_good_core', '{{application_id}}');
     }
   }
 }
@@ -47,35 +48,40 @@ void main() async {
     Directory(path.join(_targetPath, 'my_app'))
         .listSync(recursive: true)
         .whereType<File>()
-        .map((_) async {
-      var file = _;
-
+        .map((File element) async {
+      File file = element;
       try {
+        final contents = await file.readAsString();
+
         if (path.basename(file.path) == 'LICENSE') {
           await file.delete(recursive: true);
           return;
         }
 
         if (file.path.endsWith('Info.plist')) {
-          final contents = await file.readAsString();
           file = await file.writeAsString(contents.replaceAll(
             '<string>Very Good Core</string>',
             r'<string>$(FLAVOR_APP_NAME)</string>',
           ));
         }
 
-        final contents = await file.readAsString();
         file = await file.writeAsString(
           contents
-              .replaceAll('very_good_core', '{{project_name.snakeCase()}}')
+              .replaceApplicationId(file.path)
               .replaceAll('very-good-core', '{{project_name.paramCase()}}')
-              .replaceAll('A new Flutter project.', '{{{description}}}')
+              .replaceAll('A Very Good App', '{{{description}}}')
               .replaceAll('Very Good Core', '{{project_name.titleCase()}}')
-              .replaceApplicationId(file.path),
+              .replaceAll('VeryGoodCore',
+                  '{{#pascalCase}}{{project_name}}{{/pascalCase}}')
+              .replaceAll('veryGoodCore',
+                  '{{#camelCase}}{{project_name}}{{/camelCase}}')
+              .replaceAll('very_good_core', '{{project_name.snakeCase()}}'),
         );
 
         final fileSegments = file.path.split('/').sublist(2);
-        if (fileSegments.contains('very_good_core')) {
+
+        if (fileSegments
+            .any((String element) => element.contains('very_good_core'))) {
           final newPathSegment = fileSegments.join('/').replaceAll(
                 'very_good_core',
                 '{{project_name.snakeCase()}}',
@@ -83,11 +89,32 @@ void main() async {
           final newPath = path.join(_targetPath, newPathSegment);
           File(newPath).createSync(recursive: true);
           file.renameSync(newPath);
-          Directory(file.parent.path).deleteSync(recursive: true);
         }
       } catch (_) {}
     }),
   );
+
+  // Convert Golden Files to Variables
+
+  await Future.wait(Directory(path.join(_targetPath, 'my_app'))
+      .listSync(recursive: true)
+      .where((element) =>
+          element.path.split('.').last.toLowerCase().contains('png'))
+      .map((element) async {
+    var file = element;
+    final fileSegments = file.path.split('/').sublist(2);
+
+    if (fileSegments
+        .any((String element) => element.contains('very_good_core'))) {
+      final newPathSegment = fileSegments.join('/').replaceAll(
+            'very_good_core',
+            '{{project_name.snakeCase()}}',
+          );
+      final newPath = path.join(_targetPath, newPathSegment);
+      File(newPath).createSync(recursive: true);
+      file.renameSync(newPath);
+    }
+  }));
 
   final mainActivityKt = File(
     path.join(

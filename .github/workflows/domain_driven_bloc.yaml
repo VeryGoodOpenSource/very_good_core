@@ -1,0 +1,73 @@
+name: domain_driven_bloc
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/domain_driven_bloc.yaml"
+      - "src/my_app/lib/**"
+      - "src/my_app/test/**"
+      - "src/my_app/pubspec.yaml"
+      - "tool/generator/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/domain_driven_bloc.yaml"
+      - "src/my_app/lib/**"
+      - "src/my_app/test/**"
+      - "src/my_app/pubspec.yaml"
+      - "tool/generator/**"
+
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: "./src/my_app"
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v3
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-$
+
+      - name: 📦 Install Dependencies
+        run: |
+          flutter pub global activate very_good_cli
+          very_good --analytics false
+          very_good packages get --recursive
+      - name: ⚙️ Run Setup
+        run: |
+          flutter pub run intl_utils:generate
+          flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: ✨ Check Formatting
+        run: flutter format --set-exit-if-changed lib test
+
+      - name: 🕵️ Analyze
+        run: |
+          flutter analyze lib test
+          dart analyze lib test
+
+      - name: 🧪 Run Tests
+        run: flutter test --dart-define=CI=true --coverage
+        
+      - name: 📤 Upload Failed Goldens
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: goldens-failures
+          path: test/widget/**/failures
+
+      - name: 📊 Check Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v2
+        with:
+          path: ./src/my_app/coverage/lcov.info
+          exclude: "lib/app/config/* lib/app/utils/* lib/app/generated/* lib/app/generated/intl/* lib/app/themes/* lib/bootstrap.dart *.g.dart  *.freezed.dart *.dto.dart *.config.dart *.chopper.dart **/*_webview.dart **/service/* **/model/*"
+          min_coverage: 80

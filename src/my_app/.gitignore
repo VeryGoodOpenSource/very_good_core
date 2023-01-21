@@ -113,6 +113,44 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
+# Generated Files
+*.g.dart
+*.gr.dart
+*.freezed.dart
+*.chopper.dart
+lib/generated/
+release.keystore
+*.lock
+*.mocks.dart
+*.gen.dart
+*.config.dart
+
+# Dart Test Results
+coverage
+
+# Dart Code Metrics
+metrics/
+
+# Do not commit local.properties
+local.properties
+
+# Do not commit store_certificates/
+store_certificates/
+
+# FVM
+.fvm/flutter_sdk
+
+# Fastlane
+ios/fastlane/README.md
+ios/fastlane/report.xml
+android/fastlane/README.md
+android/fastlane/report.xml
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/releas
+
 # Exceptions to the above rules.
 !**/ios/**/default.mode1v3
 !**/ios/**/default.mode2v3
@@ -125,3 +163,9 @@ app.*.map.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
+
+# Ignore platform-specific goldens
+**/goldens/macos
+**/goldens/linux
+**/goldens/windows
+**/failures/
