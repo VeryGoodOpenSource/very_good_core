@@ -26,8 +26,8 @@ class GoldenTestDeviceScenario extends StatelessWidget {
               textScaleFactor: device.textScale,
             ),
             child: SizedBox(
-              height: device.size.height,
               width: device.size.width,
+              height: device.size.height,
               child: builder(),
             ),
           ),

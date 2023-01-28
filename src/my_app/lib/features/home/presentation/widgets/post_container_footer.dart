@@ -15,10 +15,10 @@ class PostContainerFooter extends StatelessWidget {
         children: <Widget>[
           _FooterItems(
             leftIcon: Icons.arrow_upward_rounded,
-            rightIcon: Icons.arrow_downward_rounded,
             value: post.upvotes.getOrCrash() == 0
                 ? context.l10n.post__upvotes_default_value__vote
                 : post.upvotes.getOrCrash().toString(),
+            rightIcon: Icons.arrow_downward_rounded,
           ),
           _FooterItems(
             leftIcon: Icons.chat_bubble_outline,
@@ -42,7 +42,6 @@ class _FooterItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: EdgeInsets.symmetric(horizontal: Insets.xxs),
         padding: EdgeInsets.symmetric(horizontal: Insets.xs),
         decoration: BoxDecoration(
           border: Border.all(
@@ -50,18 +49,19 @@ class _FooterItems extends StatelessWidget {
           ),
           borderRadius: AppTheme.defaultBoardRadius,
         ),
+        margin: EdgeInsets.symmetric(horizontal: Insets.xxs),
         child: Row(
           children: <Widget>[
             Icon(
               leftIcon,
-              size: (AppTextStyle.caption.fontSize ?? 14) * 1.5,
+              size: (AppTextStyle.bodySmall.fontSize ?? 14) * 1.5,
               color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
             ),
             Padding(
               padding: EdgeInsets.all(Insets.xs),
               child: Text(
                 value,
-                style: AppTextStyle.caption.copyWith(
+                style: AppTextStyle.bodySmall.copyWith(
                   color:
                       Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
                 ),
@@ -70,7 +70,7 @@ class _FooterItems extends StatelessWidget {
             if (rightIcon != null)
               Icon(
                 rightIcon,
-                size: (AppTextStyle.caption.fontSize ?? 14) * 1.5,
+                size: (AppTextStyle.bodySmall.fontSize ?? 14) * 1.5,
                 color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
               ),
           ],

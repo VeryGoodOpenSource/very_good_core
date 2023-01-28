@@ -32,7 +32,7 @@ class ProfileScreen extends HookWidget {
           return const LoadingScreen();
         } else if (state.failure != null) {
           return ErrorScreen(
-            onRefresh: () async => context.read<VeryGoodCoreBloc>().getUser(),
+            onRefresh: () => context.read<VeryGoodCoreBloc>().getUser(),
             errorMessage: ErrorMessageUtils.generate(context, state.failure),
           );
         }
@@ -40,7 +40,7 @@ class ProfileScreen extends HookWidget {
         return SmartRefresher(
           controller: refreshController,
           header: const ClassicHeader(),
-          onRefresh: () async => context.read<VeryGoodCoreBloc>().getUser(),
+          onRefresh: () => context.read<VeryGoodCoreBloc>().getUser(),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: Insets.xl),
             child: Column(
@@ -49,7 +49,7 @@ class ProfileScreen extends HookWidget {
                 VSpace(Insets.lg),
                 Text(
                   context.l10n.profile__header_text__basic_information,
-                  style: AppTextStyle.headline4,
+                  style: AppTextStyle.headlineMedium,
                 ),
                 VSpace(Insets.med),
                 Row(
@@ -66,11 +66,11 @@ class ProfileScreen extends HookWidget {
                           children: <Widget>[
                             Text(
                               user.firstName.getOrCrash(),
-                              style: AppTextStyle.headline2,
+                              style: AppTextStyle.displayMedium,
                             ),
                             Text(
                               user.lastName.getOrCrash(),
-                              style: AppTextStyle.headline2,
+                              style: AppTextStyle.displayMedium,
                             ),
                           ],
                         ),
@@ -114,11 +114,11 @@ class ProfileScreen extends HookWidget {
                 ),
                 Center(
                   child: VeryGoodCoreButton(
+                    text: context.l10n.profile__button_text__logout,
                     isExpanded: true,
+                    onPressed: () => context.read<VeryGoodCoreBloc>().logout(),
                     padding: EdgeInsets.zero,
                     contentPadding: EdgeInsets.symmetric(vertical: Insets.med),
-                    text: context.l10n.profile__button_text__logout,
-                    onPressed: () => context.read<VeryGoodCoreBloc>().logout(),
                   ),
                 ),
                 VSpace(Insets.lg),

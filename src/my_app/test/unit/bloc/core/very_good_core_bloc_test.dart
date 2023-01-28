@@ -23,7 +23,7 @@ void main() {
   late MockIAuthRepository authRepository;
   late VeryGoodCoreBloc veryGoodCoreBloc;
 
-  setUp(() async {
+  setUp(() {
     userRepository = MockIUserRepository();
     authRepository = MockIAuthRepository();
     veryGoodCoreBloc = VeryGoodCoreBloc(userRepository, authRepository);
@@ -88,7 +88,7 @@ void main() {
 
         return veryGoodCoreBloc;
       },
-      act: (VeryGoodCoreBloc bloc) async => bloc.getUser(),
+      act: (VeryGoodCoreBloc bloc) => bloc.getUser(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,
@@ -111,7 +111,7 @@ void main() {
 
         return veryGoodCoreBloc;
       },
-      act: (VeryGoodCoreBloc bloc) async => bloc.getUser(),
+      act: (VeryGoodCoreBloc bloc) => bloc.getUser(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,
@@ -133,7 +133,7 @@ void main() {
 
         return veryGoodCoreBloc;
       },
-      act: (VeryGoodCoreBloc bloc) async => bloc.getUser(),
+      act: (VeryGoodCoreBloc bloc) => bloc.getUser(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,
@@ -160,7 +160,7 @@ void main() {
 
         return veryGoodCoreBloc;
       },
-      act: (VeryGoodCoreBloc bloc) async => bloc.logout(),
+      act: (VeryGoodCoreBloc bloc) => bloc.logout(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,
@@ -184,7 +184,7 @@ void main() {
 
         return veryGoodCoreBloc;
       },
-      act: (VeryGoodCoreBloc bloc) async => bloc.logout(),
+      act: (VeryGoodCoreBloc bloc) => bloc.logout(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,
@@ -205,7 +205,7 @@ void main() {
 
         return veryGoodCoreBloc;
       },
-      act: (VeryGoodCoreBloc bloc) async => bloc.logout(),
+      act: (VeryGoodCoreBloc bloc) => bloc.logout(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,
@@ -230,7 +230,7 @@ void main() {
     blocTest<VeryGoodCoreBloc, VeryGoodCoreState>(
       'should emit an authenticated user state',
       build: () => veryGoodCoreBloc,
-      act: (VeryGoodCoreBloc bloc) async => bloc.authenticate(),
+      act: (VeryGoodCoreBloc bloc) => bloc.authenticate(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,
@@ -253,7 +253,7 @@ void main() {
 
         return veryGoodCoreBloc;
       },
-      act: (VeryGoodCoreBloc bloc) async => bloc.authenticate(),
+      act: (VeryGoodCoreBloc bloc) => bloc.authenticate(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,
@@ -275,7 +275,7 @@ void main() {
 
         return veryGoodCoreBloc;
       },
-      act: (VeryGoodCoreBloc bloc) async => bloc.authenticate(),
+      act: (VeryGoodCoreBloc bloc) => bloc.authenticate(),
       expect: () => <dynamic>[
         veryGoodCoreBloc.state.copyWith(
           authStatus: AuthStatus.authenticated,

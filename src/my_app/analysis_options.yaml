@@ -101,11 +101,9 @@ linter:
     avoid_dynamic_calls: false
     flutter_style_todos: false
     one_member_abstracts: false
-    argument_type_not_assignable: false
     prefer_constructors_over_static_methods: false
     omit_local_variable_types: false
     lines_longer_than_80_chars: false
-    strict-raw-types: false
     avoid_classes_with_only_static_members: false
     directives_ordering: false
 

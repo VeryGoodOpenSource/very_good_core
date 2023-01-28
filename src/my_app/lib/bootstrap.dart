@@ -13,6 +13,7 @@ import 'package:very_good_core/app/generated/assets.gen.dart';
 import 'package:very_good_core/app/observers/app_bloc_observer.dart';
 import 'package:very_good_core/app/utils/injection.dart';
 
+// ignore_for_file: prefer-static-class
 Future<void> bootstrap(FutureOr<Widget> Function() builder, Env env) async {
   WidgetsFlutterBinding.ensureInitialized();
   urlConfig();

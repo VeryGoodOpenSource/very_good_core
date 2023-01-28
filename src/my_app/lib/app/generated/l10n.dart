@@ -190,6 +190,26 @@ class AppLocalizations {
     );
   }
 
+  /// `Email`
+  String get login__label_text__email {
+    return Intl.message(
+      'Email',
+      name: 'login__label_text__email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get login__label_text__password {
+    return Intl.message(
+      'Password',
+      name: 'login__label_text__password',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `enter email address`
   String get login__text_field_hint__email {
     return Intl.message(
@@ -306,26 +326,6 @@ class AppLocalizations {
     return Intl.message(
       'Phone Number',
       name: 'profile__label_text__phone_number',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Email`
-  String get login__label_text__email {
-    return Intl.message(
-      'Email',
-      name: 'login__label_text__email',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Password`
-  String get login__label_text__password {
-    return Intl.message(
-      'Password',
-      name: 'login__label_text__password',
       desc: '',
       args: [],
     );

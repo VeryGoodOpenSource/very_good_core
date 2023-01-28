@@ -23,7 +23,7 @@ class PostDetailsWebview extends HookWidget {
       ),
       child: BlocBuilder<PostDetailsBloc, PostDetailsState>(
         builder: (BuildContext context, PostDetailsState state) => WillPopScope(
-          onWillPop: () async => context.read<PostDetailsBloc>().webViewBack(),
+          onWillPop: () => context.read<PostDetailsBloc>().webViewBack(),
           child: Center(
             child: Stack(
               children: <Widget>[
@@ -47,9 +47,9 @@ class PostDetailsWebview extends HookWidget {
         ..loadRequest(Uri.parse(webviewUrl.getOrCrash()))
         ..setNavigationDelegate(
           NavigationDelegate(
-            onProgress: (int progress) => loadingProgress.value = progress,
             onNavigationRequest: (NavigationRequest request) =>
                 NavigationDecision.navigate,
+            onProgress: (int progress) => loadingProgress.value = progress,
           ),
         );
 }

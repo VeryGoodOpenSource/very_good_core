@@ -14,6 +14,8 @@
   "common_yes": "yes",
   "dialog__message__exit_message": "Are you sure you want to close the application?",
   "login__button_text__login": "login",
+  "login__label_text__email": "Email",
+  "login__label_text__password": "Password",
   "login__text_field_hint__email": "enter email address",
   "login__text_field_hint__password": "enter password",
   "post__empty_post__empty_post_message": "No posts available",
@@ -25,7 +27,5 @@
   "profile__label_text__birthday": "Birthday",
   "profile__label_text__email": "Email",
   "profile__label_text__gender": "Gender",
-  "profile__label_text__phone_number": "Phone Number",
-  "login__label_text__email": "Email",
-  "login__label_text__password": "Password"
+  "profile__label_text__phone_number": "Phone Number"
 }

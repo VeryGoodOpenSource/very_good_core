@@ -35,7 +35,7 @@ build_runner_watch: ## This command generates the files for the code generated d
 	fvm flutter pub run build_runner watch --delete-conflicting-outputs
 
 format: ## This command formats the codebase and run import sorter
-	fvm flutter format lib test
+	fvm dart format lib test
 
 clean_rebuild: ensure_flutter_version clean pub_clean pub_get l10n build_runner format
 

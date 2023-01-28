@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
+//ignore_for_file: prefer-static-class
 RefreshController useRefreshController() => use(_RefreshControllerHook());
 
 class _RefreshControllerHook extends Hook<RefreshController> {

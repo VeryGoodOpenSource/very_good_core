@@ -1,7 +1,7 @@
 name: domain_driven_bloc
 description: A Flutter Project Blueprint for Building Maintainable and Scalable Flutter Apps.
 repository: https://github.com/Arnooodles/domain_driven_bloc
-version: 0.1.14
+version: 0.1.15
 
 environment:
   mason: ">=0.1.0-dev.40 <0.1.0"

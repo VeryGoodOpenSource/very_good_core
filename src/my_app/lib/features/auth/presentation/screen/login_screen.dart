@@ -28,7 +28,6 @@ class LoginScreen extends HookWidget {
     return BlocProvider<LoginBloc>(
       create: (BuildContext context) => getIt<LoginBloc>(),
       child: BlocConsumer<LoginBloc, LoginState>(
-        listener: _loginScreenListener,
         builder: (BuildContext context, LoginState state) {
           emailTextController
             ..value = TextEditingValue(text: state.emailAddress ?? '')
@@ -39,47 +38,44 @@ class LoginScreen extends HookWidget {
           return ConnectivityChecker.scaffold(
             body: Center(
               child: Container(
-                constraints:
-                    const BoxConstraints(maxWidth: Constant.mobileBreakpoint),
                 padding: EdgeInsets.all(Insets.xl),
+                constraints: const BoxConstraints(
+                  maxWidth: Constant.mobileBreakpoint,
+                ),
                 child: Column(
                   children: <Widget>[
-                    const Flexible(
-                      child: Center(
-                        child: AppTitle(),
-                      ),
-                    ),
+                    const Flexible(child: Center(child: AppTitle())),
                     Expanded(
                       child: Column(
                         children: <Widget>[
                           VeryGoodCoreTextField(
-                            labelText: context.l10n.login__label_text__email,
                             controller: emailTextController,
-                            autofocus: true,
+                            labelText: context.l10n.login__label_text__email,
                             hintText:
                                 context.l10n.login__text_field_hint__email,
                             onChanged: (String value) => context
                                 .read<LoginBloc>()
                                 .onEmailAddressChanged(value),
+                            autofocus: true,
                           ),
                           VSpace.lg,
                           VeryGoodCoreTextField(
-                            labelText: context.l10n.login__label_text__password,
                             controller: passwordTextController,
-                            isPassword: true,
-                            textInputType: TextInputType.visiblePassword,
+                            labelText: context.l10n.login__label_text__password,
                             hintText:
                                 context.l10n.login__text_field_hint__password,
+                            textInputType: TextInputType.visiblePassword,
+                            isPassword: true,
                           ),
                           VSpace.xxl,
                           VeryGoodCoreButton(
-                            isExpanded: true,
+                            text: context.l10n.login__button_text__login,
                             isEnabled: !state.isLoading,
+                            isExpanded: true,
                             onPressed: () => context.read<LoginBloc>().login(
                                   emailTextController.text,
                                   passwordTextController.text,
                                 ),
-                            text: context.l10n.login__button_text__login,
                           ),
                         ],
                       ),
@@ -90,6 +86,7 @@ class LoginScreen extends HookWidget {
             ),
           );
         },
+        listener: _loginScreenListener,
       ),
     );
   }

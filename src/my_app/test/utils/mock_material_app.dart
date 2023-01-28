@@ -12,11 +12,10 @@ class MockMaterialApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
+        home: child,
         title: Constant.appName,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
-        debugShowCheckedModeBanner: false,
-        scrollBehavior: ScrollBehaviorConfig(),
         localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -24,6 +23,7 @@ class MockMaterialApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: AppLocalizations.delegate.supportedLocales,
-        home: child,
+        debugShowCheckedModeBanner: false,
+        scrollBehavior: ScrollBehaviorConfig(),
       );
 }

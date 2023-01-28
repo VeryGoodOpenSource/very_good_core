@@ -20,8 +20,6 @@ class HomeScreen extends HookWidget {
     final ValueNotifier<bool> isDialogShowing = useState(false);
 
     return BlocConsumer<PostBloc, PostState>(
-      listener: (BuildContext context, PostState state) =>
-          _homeScreenListener(context, state, isDialogShowing),
       builder: (BuildContext context, PostState state) {
         if (state.isLoading) {
           return const LoadingScreen();
@@ -30,7 +28,7 @@ class HomeScreen extends HookWidget {
         return SmartRefresher(
           controller: refreshController,
           header: const ClassicHeader(),
-          onRefresh: () async => context.read<PostBloc>().getPosts(),
+          onRefresh: () => context.read<PostBloc>().getPosts(),
           child: state.posts.isNotEmpty
               ? ListView.separated(
                   itemBuilder: (BuildContext context, int index) =>
@@ -42,6 +40,8 @@ class HomeScreen extends HookWidget {
               : const EmptyPost(),
         );
       },
+      listener: (BuildContext context, PostState state) =>
+          _homeScreenListener(context, state, isDialogShowing),
     );
   }
 

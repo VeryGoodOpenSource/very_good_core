@@ -23,15 +23,15 @@ class AppRouter {
   final VeryGoodCoreBloc veryGoodCoreBloc;
 
   late final GoRouter router = GoRouter(
-    debugLogDiagnostics: kDebugMode,
-    navigatorKey: rootNavigatorKey,
-    initialLocation: RouteName.initial.path,
     routes:
         getIt<AppRoutes>(param1: shellNavigatorKey, param2: scaffoldKey).routes,
     redirect: _routeGuard,
     refreshListenable: GoRouterRefreshStream(veryGoodCoreBloc.stream),
+    initialLocation: RouteName.initial.path,
     observers:
         kDebugMode ? <NavigatorObserver>[getIt<GoRouteObserver>()] : null,
+    debugLogDiagnostics: kDebugMode,
+    navigatorKey: rootNavigatorKey,
   );
 
   String? _routeGuard(_, GoRouterState state) {

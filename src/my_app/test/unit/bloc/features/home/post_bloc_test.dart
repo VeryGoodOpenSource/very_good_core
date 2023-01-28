@@ -21,7 +21,7 @@ void main() {
   late Failure failure;
   List<Post> posts = <Post>[];
 
-  setUp(() async {
+  setUp(() {
     postRepository = MockIPostRepository();
     failure =
         const Failure.serverError(StatusCode.api500, 'INTERNAL SERVER ERROR');
@@ -45,7 +45,7 @@ void main() {
 
         return PostBloc(postRepository);
       },
-      act: (PostBloc bloc) async => bloc.getPosts(),
+      act: (PostBloc bloc) => bloc.getPosts(),
       expect: () => <dynamic>[PostState.initial().copyWith(posts: posts)],
     );
     blocTest<PostBloc, PostState>(
@@ -55,7 +55,7 @@ void main() {
 
         return PostBloc(postRepository);
       },
-      act: (PostBloc bloc) async => bloc.getPosts(),
+      act: (PostBloc bloc) => bloc.getPosts(),
       expect: () =>
           <dynamic>[postBloc.state.copyWith(posts: <Post>[], failure: failure)],
     );
@@ -67,7 +67,7 @@ void main() {
 
         return PostBloc(postRepository);
       },
-      act: (PostBloc bloc) async => bloc.getPosts(),
+      act: (PostBloc bloc) => bloc.getPosts(),
       expect: () => <dynamic>[
         postBloc.state.copyWith(
           isLoading: true,

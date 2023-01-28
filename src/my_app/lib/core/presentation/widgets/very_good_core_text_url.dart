@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:very_good_core/app/themes/spacing.dart';
 import 'package:very_good_core/app/themes/text_styles.dart';
 import 'package:very_good_core/core/domain/model/value_objects.dart';
@@ -27,14 +26,14 @@ class VeryGoodCoreTextUrl extends StatelessWidget {
               child: Text(
                 url.getOrCrash(),
                 style: style?.copyWith(decoration: TextDecoration.underline) ??
-                    AppTextStyle.caption.copyWith(
+                    AppTextStyle.bodySmall.copyWith(
                       color: Colors.lightBlue,
                       decoration: TextDecoration.underline,
                     ),
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.ellipsis,
-                textWidthBasis: TextWidthBasis.longestLine,
                 maxLines: 1,
+                textWidthBasis: TextWidthBasis.longestLine,
               ),
             ),
             if (isShowIcon)
@@ -42,8 +41,8 @@ class VeryGoodCoreTextUrl extends StatelessWidget {
                 padding: EdgeInsets.only(left: Insets.xxs),
                 child: Icon(
                   Icons.open_in_new,
+                  size: style?.fontSize ?? AppTextStyle.bodySmall.fontSize,
                   color: Colors.lightBlue,
-                  size: style?.fontSize ?? AppTextStyle.caption.fontSize,
                 ),
               ),
           ],

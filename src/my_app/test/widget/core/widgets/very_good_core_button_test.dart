@@ -40,8 +40,8 @@ void main() {
               constraints: const BoxConstraints(minWidth: 200),
               child: VeryGoodCoreButton(
                 text: 'Button',
-                isExpanded: true,
                 isEnabled: false,
+                isExpanded: true,
                 onPressed: () => counter++,
               ),
             ),
@@ -51,10 +51,10 @@ void main() {
     goldenTest(
       'renders correctly in initial state',
       fileName: 'very_good_core_button'.goldensVersion,
-      builder: buildButtonTestGroup,
       pumpBeforeTest: (WidgetTester tester) async {
         await tester.pump(const Duration(seconds: 1));
       },
+      builder: buildButtonTestGroup,
     );
   });
 }

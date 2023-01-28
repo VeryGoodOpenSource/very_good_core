@@ -25,7 +25,7 @@ void main() {
     blocTest<PostDetailsBloc, PostDetailsState>(
       'should emit the new url',
       build: () => postDetailsBloc,
-      act: (PostDetailsBloc bloc) async =>
+      act: (PostDetailsBloc bloc) =>
           bloc.loadView(Url('http://www.example123.com')),
       expect: () => <dynamic>[
         postDetailsBloc.state

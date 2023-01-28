@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:very_good_core/app/themes/app_theme.dart';
 import 'package:very_good_core/app/themes/spacing.dart';
 import 'package:very_good_core/app/themes/text_styles.dart';
@@ -29,9 +28,9 @@ class VeryGoodCoreButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Semantics(
         key: Key(text),
+        enabled: isEnabled,
         button: true,
         label: text,
-        enabled: isEnabled,
         child: SizedBox(
           width: isExpanded ? double.infinity : null,
           child: Padding(
@@ -50,14 +49,14 @@ class VeryGoodCoreButton extends StatelessWidget {
                     ? Text(
                         text,
                         style: textStyle ??
-                            AppTextStyle.button.copyWith(
+                            AppTextStyle.labelLarge.copyWith(
                               color: Theme.of(context).colorScheme.onPrimary,
                             ),
                       )
                     : Center(
                         child: SizedBox.square(
                           dimension: textStyle?.fontSize ??
-                              AppTextStyle.button.fontSize,
+                              AppTextStyle.labelLarge.fontSize,
                           child: CircularProgressIndicator(
                             color: Theme.of(context).colorScheme.primary,
                           ),

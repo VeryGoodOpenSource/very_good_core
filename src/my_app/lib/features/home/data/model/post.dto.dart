@@ -41,14 +41,14 @@ class PostDTO with _$PostDTO {
         title: post.title.getOrCrash(),
         author: post.author.getOrCrash(),
         permalink: post.permalink.getOrCrash(),
+        selftext: post.selftext.getOrCrash(),
         createdUtc: post.createdUtc,
         linkFlairBackgroundColor:
             post.linkFlairBackgroundColor.toHex(hashSign: true),
+        linkFlairText: post.linkFlairText.getOrCrash(),
         upvotes: post.upvotes.getOrCrash().toInt(),
         comments: post.comments.getOrCrash().toInt(),
         urlOverriddenByDest: post.urlOverriddenByDest?.getOrCrash(),
-        linkFlairText: post.linkFlairText.getOrCrash(),
-        selftext: post.selftext.getOrCrash(),
       );
 
   static List<PostDTO?>? postFromJson(String str) => json.decode(str) == null
@@ -76,10 +76,6 @@ class PostDTO with _$PostDTO {
             : Colors.transparent,
         upvotes: Number(upvotes ?? 0),
         comments: Number(comments ?? 0),
-        urlOverriddenByDest: urlOverriddenByDest.isNotNullOrBlank
-            ? Url(urlOverriddenByDest!)
-            : null,
-        linkFlairText: ValueString(linkFlairText),
         selftext: ValueString(
           selftext.isNotNullOrBlank
               ? HtmlUnescape()
@@ -87,5 +83,9 @@ class PostDTO with _$PostDTO {
                   .replaceAll('&#x200B;', '\u2028')
               : '',
         ),
+        linkFlairText: ValueString(linkFlairText),
+        urlOverriddenByDest: urlOverriddenByDest.isNotNullOrBlank
+            ? Url(urlOverriddenByDest!)
+            : null,
       );
 }

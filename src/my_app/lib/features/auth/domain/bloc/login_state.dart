@@ -11,8 +11,8 @@ class LoginState with _$LoginState {
 
   factory LoginState.initial() => const _LoginState(
         emailAddress: null,
-        isLoading: false,
         failure: null,
+        isLoading: false,
         isSuccess: false,
       );
 }

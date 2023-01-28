@@ -8,7 +8,7 @@ class AppTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
         Constant.appName,
-        style: AppTextStyle.headline1
+        style: AppTextStyle.displayLarge
             .copyWith(color: Theme.of(context).colorScheme.primary),
       );
 }

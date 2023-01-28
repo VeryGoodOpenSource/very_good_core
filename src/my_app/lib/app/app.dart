@@ -27,19 +27,7 @@ class App extends StatelessWidget {
         child: BlocBuilder<VeryGoodCoreBloc, VeryGoodCoreState>(
           builder: (BuildContext context, VeryGoodCoreState state) =>
               MaterialApp.router(
-            title: Constant.appName,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: state.themeMode,
-            debugShowCheckedModeBanner: false,
-            scrollBehavior: ScrollBehaviorConfig(),
-            localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
-            supportedLocales: AppLocalizations.delegate.supportedLocales,
+            routerConfig: routerConfig,
             builder: (BuildContext context, Widget? widget) =>
                 ResponsiveWrapper.builder(
               widget,
@@ -63,7 +51,19 @@ class App extends StatelessWidget {
                 ),
               ],
             ),
-            routerConfig: routerConfig,
+            title: Constant.appName,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: state.themeMode,
+            localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            supportedLocales: AppLocalizations.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            scrollBehavior: ScrollBehaviorConfig(),
           ),
         ),
       );

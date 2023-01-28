@@ -35,7 +35,6 @@ class AppRoutes {
               const LoginScreen(),
         ),
         ShellRoute(
-          navigatorKey: shellNavigatorKey,
           builder: (BuildContext context, GoRouterState state, Widget child) =>
               VeryGoodCoreScreen(child: child),
           routes: <RouteBase>[
@@ -73,6 +72,7 @@ class AppRoutes {
               ),
             ),
           ],
+          navigatorKey: shellNavigatorKey,
         ),
       ];
 }

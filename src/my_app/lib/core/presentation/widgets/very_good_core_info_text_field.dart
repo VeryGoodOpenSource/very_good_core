@@ -20,28 +20,20 @@ class VeryGoodCoreInfoTextField extends StatelessWidget {
         textField: true,
         readOnly: true,
         child: Container(
-          width: isExpanded ? double.infinity : null,
-          padding: EdgeInsets.symmetric(
-            vertical: Insets.sm,
-            horizontal: Insets.med,
-          ),
+          padding:
+              EdgeInsets.symmetric(vertical: Insets.sm, horizontal: Insets.med),
           decoration: BoxDecoration(
-            borderRadius: AppTheme.defaultBoardRadius,
             color: Theme.of(context).colorScheme.onBackground.withOpacity(0.1),
+            borderRadius: AppTheme.defaultBoardRadius,
           ),
+          width: isExpanded ? double.infinity : null,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                title,
-                style: AppTextStyle.caption,
-              ),
+              Text(title, style: AppTextStyle.bodySmall),
               VSpace.xxs,
-              Text(
-                description,
-                style: AppTextStyle.subtitle1,
-              ),
+              Text(description, style: AppTextStyle.titleMedium),
             ],
           ),
         ),

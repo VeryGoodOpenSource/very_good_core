@@ -43,9 +43,9 @@ void main() {
                     controller: controller,
                     labelText: 'Label',
                     hintText: 'hint',
+                    isPassword: isPassword,
                     autofocus: true,
                     focusNode: focusNode,
-                    isPassword: isPassword,
                   );
                 },
               ),
@@ -60,9 +60,9 @@ void main() {
                   return VeryGoodCoreTextField(
                     controller: controller,
                     labelText: 'Label',
+                    isPassword: isPassword,
                     autofocus: true,
                     focusNode: focusNode,
-                    isPassword: isPassword,
                   );
                 },
               ),
@@ -73,8 +73,8 @@ void main() {
               child: VeryGoodCoreTextField(
                 controller: TextEditingController(text: 'Value'),
                 labelText: 'Label',
-                autofocus: true,
                 isPassword: isPassword,
+                autofocus: true,
               ),
             ),
             GoldenTestScenario(
@@ -87,9 +87,9 @@ void main() {
                   return VeryGoodCoreTextField(
                     controller: TextEditingController(text: 'Value'),
                     labelText: 'Label',
+                    isPassword: isPassword,
                     autofocus: true,
                     focusNode: focusNode,
-                    isPassword: isPassword,
                   );
                 },
               ),

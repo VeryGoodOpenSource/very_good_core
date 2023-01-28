@@ -21,13 +21,13 @@ class PostContainer extends StatelessWidget {
   Widget build(BuildContext context) => Padding(
         padding: EdgeInsets.symmetric(horizontal: Insets.sm),
         child: GestureDetector(
-          onTap: () async => launchPostDetails(context),
+          onTap: () => launchPostDetails(context),
           child: Card(
             child: Padding(
               padding: EdgeInsets.all(Insets.xs),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   PostContainerHeader(post: post),
                   if (post.urlOverriddenByDest != null)
@@ -36,31 +36,33 @@ class PostContainer extends StatelessWidget {
                       child: VeryGoodCoreTextUrl(
                         url: post.urlOverriddenByDest!,
                         onTap: () => launchUrl(
-                          Uri.parse(post.urlOverriddenByDest!.getOrCrash()),
+                          Uri.parse(
+                            post.urlOverriddenByDest!.getOrCrash(),
+                          ),
                         ),
                       ),
                     ),
                   if (post.selftext.getOrCrash().isNotNullOrBlank)
                     Flexible(
                       child: Container(
-                        constraints: const BoxConstraints(maxHeight: 200),
                         foregroundDecoration: BoxDecoration(
                           gradient: LinearGradient(
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
                             colors: <Color>[
                               Theme.of(context).cardColor,
                               Theme.of(context).cardColor.withOpacity(0),
                             ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
                           ),
                         ),
+                        constraints: const BoxConstraints(maxHeight: 200),
                         child: IgnorePointer(
                           child: Markdown(
-                            shrinkWrap: true,
-                            styleSheet:
-                                MarkdownStyleSheet(p: AppTextStyle.bodyText2),
                             data: post.selftext.getOrCrash(),
+                            styleSheet:
+                                MarkdownStyleSheet(p: AppTextStyle.bodyMedium),
                             physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
                           ),
                         ),
                       ),

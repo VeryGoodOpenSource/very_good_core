@@ -26,21 +26,21 @@ class VeryGoodCoreAvatar extends StatelessWidget {
                     ImageProvider<Object> imageProvider,
                   ) =>
                       Container(
-                    height: size,
-                    width: size,
                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
+                      color: Theme.of(context).colorScheme.onBackground,
                       image: DecorationImage(
                         image: imageProvider,
                         fit: BoxFit.cover,
                       ),
-                      color: Theme.of(context).colorScheme.onBackground,
+                      shape: BoxShape.circle,
                     ),
+                    width: size,
+                    height: size,
                   ),
-                  fit: BoxFit.cover,
                   errorWidget:
                       (BuildContext context, String url, dynamic error) =>
                           Icon(Icons.account_circle, size: size),
+                  fit: BoxFit.cover,
                 )
               : Icon(Icons.account_circle, size: size),
         ),

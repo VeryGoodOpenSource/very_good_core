@@ -20,7 +20,7 @@ void main() {
   late String password;
   late Failure failure;
 
-  setUp(() async {
+  setUp(() {
     authRepository = MockIAuthRepository();
     localStorageRepository = MockILocalStorageRepository();
 
@@ -37,7 +37,7 @@ void main() {
 
         return LoginBloc(authRepository, localStorageRepository);
       },
-      act: (LoginBloc bloc) async => bloc.initialize(),
+      act: (LoginBloc bloc) => bloc.initialize(),
       expect: () => <dynamic>[LoginState.initial()],
     );
 
@@ -49,14 +49,14 @@ void main() {
 
         return LoginBloc(authRepository, localStorageRepository);
       },
-      act: (LoginBloc bloc) async => bloc.initialize(),
+      act: (LoginBloc bloc) => bloc.initialize(),
       expect: () =>
           <dynamic>[LoginState.initial().copyWith(emailAddress: email)],
     );
   });
 
   group('LoginBloc onEmailAddressChanged', () {
-    setUp(() async {
+    setUp(() {
       when(localStorageRepository.getLastLoggedInEmail())
           .thenAnswer((_) async => null);
       loginBloc = LoginBloc(authRepository, localStorageRepository);
@@ -72,7 +72,7 @@ void main() {
   });
 
   group('LoginBloc login', () {
-    setUp(() async {
+    setUp(() {
       when(localStorageRepository.getLastLoggedInEmail())
           .thenAnswer((_) async => null);
       loginBloc = LoginBloc(authRepository, localStorageRepository);
@@ -87,7 +87,7 @@ void main() {
 
         return loginBloc;
       },
-      act: (LoginBloc bloc) async => bloc.login(email, password),
+      act: (LoginBloc bloc) => bloc.login(email, password),
       expect: () => <dynamic>[
         loginBloc.state.copyWith(isLoading: true, isSuccess: false),
         loginBloc.state.copyWith(isSuccess: true, isLoading: false),
@@ -101,7 +101,7 @@ void main() {
 
         return loginBloc;
       },
-      act: (LoginBloc bloc) async => bloc.login(email, password),
+      act: (LoginBloc bloc) => bloc.login(email, password),
       expect: () => <dynamic>[
         loginBloc.state.copyWith(isLoading: true, isSuccess: false),
         loginBloc.state
@@ -117,7 +117,7 @@ void main() {
 
         return loginBloc;
       },
-      act: (LoginBloc bloc) async => bloc.login(email, password),
+      act: (LoginBloc bloc) => bloc.login(email, password),
       expect: () => <dynamic>[
         loginBloc.state.copyWith(isLoading: true, isSuccess: false),
         loginBloc.state.copyWith(
@@ -136,7 +136,7 @@ void main() {
 
         return loginBloc;
       },
-      act: (LoginBloc bloc) async => bloc.login('email', password),
+      act: (LoginBloc bloc) => bloc.login('email', password),
       expect: () => <dynamic>[
         loginBloc.state.copyWith(isLoading: true, isSuccess: false),
         loginBloc.state.copyWith(
@@ -155,7 +155,7 @@ void main() {
 
         return loginBloc;
       },
-      act: (LoginBloc bloc) async => bloc.login(email, 'pass'),
+      act: (LoginBloc bloc) => bloc.login(email, 'pass'),
       expect: () => <dynamic>[
         loginBloc.state.copyWith(isLoading: true, isSuccess: false),
         loginBloc.state.copyWith(

@@ -32,11 +32,11 @@ class UserDTO with _$UserDTO {
 
   factory UserDTO.fromDomain(User user) => UserDTO(
         uid: int.parse(user.uid.getOrCrash()),
+        email: user.email.getOrCrash(),
         firstName: user.firstName.getOrCrash(),
         lastName: user.lastName.getOrCrash(),
-        email: user.email.getOrCrash(),
-        gender: user.gender.name,
         avatar: user.avatar?.getOrCrash(),
+        gender: user.gender.name,
         contactNumber: user.contactNumber?.getOrCrash(),
         birthday: user.birthday,
       );
@@ -56,20 +56,19 @@ class UserDTO with _$UserDTO {
       firstName: ValueName(firstName),
       lastName: ValueName(lastName),
       email: EmailAddress(email),
-      avatar: (avatar?.isNotNullOrBlank ?? false) ? Url(avatar!) : null,
-      //TODO: fix temporary mock data
       gender: Gender.values.firstWhere(
         (Gender element) => element.name == gender?.toLowerCase(),
         orElse: () => Gender.values[Random().nextInt(Gender.values.length)],
-      ), // Random gender
+      ),
       birthday: birthday ??
           faker.date.dateTime(
             minYear: currentYear - minYear,
             maxYear: currentYear - maxYear,
-          ), // Random birthday
+          ),
       contactNumber: contactNumber.isNotNullOrBlank
           ? ContactNumber(contactNumber!)
-          : ContactNumber(faker.phoneNumber.us()), // Random contact number
+          : ContactNumber(faker.phoneNumber.us()),
+      avatar: (avatar?.isNotNullOrBlank ?? false) ? Url(avatar!) : null,
     );
   }
 }

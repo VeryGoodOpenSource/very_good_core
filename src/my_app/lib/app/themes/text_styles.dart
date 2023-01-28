@@ -8,79 +8,79 @@ abstract class AppTextStyle {
   );
 
   /// Headline 1 Text Style
-  static TextStyle get headline1 => _baseTextStyle.copyWith(
+  static TextStyle get displayLarge => _baseTextStyle.copyWith(
         fontSize: 56,
         fontWeight: AppFontWeight.medium,
       );
 
   /// Headline 2 Text Style
-  static TextStyle get headline2 => _baseTextStyle.copyWith(
+  static TextStyle get displayMedium => _baseTextStyle.copyWith(
         fontSize: 30,
         fontWeight: AppFontWeight.regular,
       );
 
   /// Headline 3 Text Style
-  static TextStyle get headline3 => _baseTextStyle.copyWith(
+  static TextStyle get displaySmall => _baseTextStyle.copyWith(
         fontSize: 28,
         fontWeight: AppFontWeight.regular,
       );
 
   /// Headline 4 Text Style
-  static TextStyle get headline4 => _baseTextStyle.copyWith(
+  static TextStyle get headlineMedium => _baseTextStyle.copyWith(
         fontSize: 22,
         fontWeight: AppFontWeight.bold,
       );
 
   /// Headline 5 Text Style
-  static TextStyle get headline5 => _baseTextStyle.copyWith(
+  static TextStyle get headlineSmall => _baseTextStyle.copyWith(
         fontSize: 20,
         fontWeight: AppFontWeight.medium,
       );
 
   /// Headline 6 Text Style
-  static TextStyle get headline6 => _baseTextStyle.copyWith(
+  static TextStyle get titleLarge => _baseTextStyle.copyWith(
         fontSize: 22,
         fontWeight: AppFontWeight.bold,
       );
 
   /// Subtitle 1 Text Style
-  static TextStyle get subtitle1 => _baseTextStyle.copyWith(
+  static TextStyle get titleMedium => _baseTextStyle.copyWith(
         fontSize: 16,
         fontWeight: AppFontWeight.bold,
       );
 
   /// Subtitle 2 Text Style
-  static TextStyle get subtitle2 => _baseTextStyle.copyWith(
+  static TextStyle get titleSmall => _baseTextStyle.copyWith(
         fontSize: 14,
         fontWeight: AppFontWeight.bold,
       );
 
   /// Body Text 1 Text Style
-  static TextStyle get bodyText1 => _baseTextStyle.copyWith(
+  static TextStyle get bodyLarge => _baseTextStyle.copyWith(
         fontSize: 18,
         fontWeight: AppFontWeight.medium,
       );
 
   /// Body Text 2 Text Style (the default)
-  static TextStyle get bodyText2 => _baseTextStyle.copyWith(
+  static TextStyle get bodyMedium => _baseTextStyle.copyWith(
         fontSize: 16,
         fontWeight: AppFontWeight.regular,
       );
 
-  /// Caption Text Style
-  static TextStyle get caption => _baseTextStyle.copyWith(
+  /// bodySmall Text Style
+  static TextStyle get bodySmall => _baseTextStyle.copyWith(
         fontSize: 14,
         fontWeight: AppFontWeight.regular,
       );
 
-  /// Overline Text Style
-  static TextStyle get overline => _baseTextStyle.copyWith(
+  /// labelSmall Text Style
+  static TextStyle get labelSmall => _baseTextStyle.copyWith(
         fontSize: 16,
         fontWeight: AppFontWeight.regular,
       );
 
-  /// Button Text Style
-  static TextStyle get button => _baseTextStyle.copyWith(
+  /// labelLarge Text Style
+  static TextStyle get labelLarge => _baseTextStyle.copyWith(
         fontSize: 16,
         fontWeight: AppFontWeight.medium,
       );

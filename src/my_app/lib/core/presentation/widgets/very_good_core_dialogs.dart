@@ -26,15 +26,16 @@ class ConfirmationDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-        title:
-            title != null ? Text(title!, style: AppTextStyle.subtitle1) : null,
+        title: title != null
+            ? Text(title!, style: AppTextStyle.titleMedium)
+            : null,
         content: Padding(
           padding: title != null
               ? EdgeInsets.zero
               : EdgeInsets.only(top: Insets.xxs),
           child: Text(
             message,
-            style: AppTextStyle.bodyText2,
+            style: AppTextStyle.bodyMedium,
           ),
         ),
         actions: <Widget>[
@@ -42,14 +43,16 @@ class ConfirmationDialog extends StatelessWidget {
             onPressed: onNegativePressed ?? () => Navigator.of(context).pop(),
             child: Text(
               negativeButtonText ?? context.l10n.common_no.toUpperCase(),
-              style: AppTextStyle.button.copyWith(color: negativeButtonColor),
+              style:
+                  AppTextStyle.labelLarge.copyWith(color: negativeButtonColor),
             ),
           ),
           TextButton(
             onPressed: onPositivePressed ?? () => Navigator.of(context).pop(),
             child: Text(
               positiveButtonText ?? context.l10n.common_yes.toUpperCase(),
-              style: AppTextStyle.button.copyWith(color: positiveButtonColor),
+              style:
+                  AppTextStyle.labelLarge.copyWith(color: positiveButtonColor),
             ),
           ),
         ],

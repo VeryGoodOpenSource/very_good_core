@@ -10,10 +10,7 @@ import '../../../utils/test_utils.dart';
 void main() {
   Widget buildErrorScreen() => const MockMaterialApp(
         child: Scaffold(
-          body: ErrorScreen(
-            errorMessage: 'Unexpected error',
-            onRefresh: null,
-          ),
+          body: ErrorScreen(onRefresh: null, errorMessage: 'Unexpected error'),
         ),
       );
 

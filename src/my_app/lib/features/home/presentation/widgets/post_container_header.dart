@@ -26,7 +26,7 @@ class PostContainerHeader extends StatelessWidget {
                 post.author.getOrCrash(),
                 post.createdUtc.ago,
               ),
-              style: AppTextStyle.caption.copyWith(
+              style: AppTextStyle.bodySmall.copyWith(
                 color:
                     Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
               ),
@@ -36,7 +36,6 @@ class PostContainerHeader extends StatelessWidget {
             children: <Widget>[
               if (post.linkFlairText.getOrCrash().isNotNullOrBlank)
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: Insets.xs),
                   padding: EdgeInsets.symmetric(
                     vertical: Insets.xxs,
                     horizontal: Insets.xs,
@@ -45,18 +44,19 @@ class PostContainerHeader extends StatelessWidget {
                     color: post.linkFlairBackgroundColor,
                     borderRadius: AppTheme.defaultBoardRadius,
                   ),
+                  margin: EdgeInsets.symmetric(horizontal: Insets.xs),
                   child: Text(
                     post.linkFlairText.getOrCrash(),
                     style:
-                        AppTextStyle.caption.copyWith(color: AppColors.white),
+                        AppTextStyle.bodySmall.copyWith(color: AppColors.white),
                   ),
                 ),
               Expanded(
                 child: Text(
                   post.title.getOrCrash(),
-                  style: AppTextStyle.subtitle1,
-                  maxLines: 2,
+                  style: AppTextStyle.titleMedium,
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 ),
               ),
             ],

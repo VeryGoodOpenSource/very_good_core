@@ -26,17 +26,17 @@ class ErrorScreen extends HookWidget {
     return SmartRefresher(
       controller: refreshController,
       header: const ClassicHeader(),
-      onRefresh: onRefresh,
       enablePullDown: enablePullDown,
+      onRefresh: onRefresh,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           const Icon(Icons.error, size: 50),
           Padding(
-            padding: const EdgeInsets.only(bottom: 8, top: 12),
+            padding: const EdgeInsets.only(top: 12, bottom: 8),
             child: Text(
               context.l10n.common_generic_error,
-              style: AppTextStyle.subtitle1,
+              style: AppTextStyle.titleMedium,
             ),
           ),
           if (kDebugMode && (errorMessage?.isNotNullOrBlank ?? false))
@@ -44,8 +44,8 @@ class ErrorScreen extends HookWidget {
               widthFactor: 0.5,
               child: Text(
                 errorMessage!,
+                style: AppTextStyle.titleSmall,
                 textAlign: TextAlign.center,
-                style: AppTextStyle.subtitle2,
               ),
             ),
         ],

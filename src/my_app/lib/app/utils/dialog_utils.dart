@@ -35,29 +35,30 @@ class DialogUtils {
   }) =>
       showFlash(
         context: context,
-        duration: duration,
         builder: (BuildContext context, FlashController<void> controller) =>
             Flash<void>(
           controller: controller,
-          behavior: FlashBehavior.fixed,
-          position: FlashPosition.bottom,
+          backgroundColor: AppColors.charcoal,
           boxShadows: kElevationToShadow[4],
           horizontalDismissDirection: HorizontalDismissDirection.horizontal,
-          backgroundColor: AppColors.charcoal,
+          position: FlashPosition.bottom,
+          behavior: FlashBehavior.fixed,
           barrierDismissible: false,
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Insets.med,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: Insets.med),
             child: FlashBar(
               content: Text(
                 ConnectionStatus.offline.name.capitalize(),
-                style: AppTextStyle.bodyText2.copyWith(color: AppColors.white),
+                style: AppTextStyle.bodyMedium.copyWith(color: AppColors.white),
               ),
-              icon: const Icon(Icons.wifi_off, color: AppColors.white),
+              icon: const Icon(
+                Icons.wifi_off,
+                color: AppColors.white,
+              ),
             ),
           ),
         ),
+        duration: duration,
       );
 
   static Future<bool?> showConfirmationDialog(
@@ -94,29 +95,31 @@ class DialogUtils {
   }) =>
       showFlash(
         context: context,
-        duration: duration ?? const Duration(seconds: 2),
-        builder: (BuildContext context, FlashController<Object?> controller) =>
+        builder: (
+          BuildContext context,
+          FlashController<Object?> controller,
+        ) =>
             Flash<dynamic>.bar(
           controller: controller,
-          position: position ?? FlashPosition.top,
-          backgroundColor: Theme.of(context).colorScheme.background,
           margin: EdgeInsets.all(Insets.med),
           borderRadius: AppTheme.defaultBoardRadius,
+          backgroundColor: Theme.of(context).colorScheme.background,
           boxShadows: const <BoxShadow>[
             BoxShadow(
               color: Color(0x1F000000),
-              blurRadius: 16,
               offset: Offset(0, 6),
+              blurRadius: 16,
             ),
           ],
+          position: position ?? FlashPosition.top,
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Insets.lg,
               vertical: Insets.med,
+              horizontal: Insets.lg,
             ),
             child: Row(
-              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 if (icon != null)
                   Padding(
@@ -126,7 +129,7 @@ class DialogUtils {
                 Flexible(
                   child: Text(
                     message,
-                    style: AppTextStyle.caption,
+                    style: AppTextStyle.bodySmall,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 3,
                   ),
@@ -135,5 +138,6 @@ class DialogUtils {
             ),
           ),
         ),
+        duration: duration ?? const Duration(seconds: 2),
       );
 }

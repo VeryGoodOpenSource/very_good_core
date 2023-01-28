@@ -21,7 +21,7 @@ class VeryGoodCoreScreen extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) => WillPopScope(
-        onWillPop: () async => DialogUtils.showExitDialog(context),
+        onWillPop: () => DialogUtils.showExitDialog(context),
         child: MultiBlocProvider(
           providers: <BlocProvider<dynamic>>[
             BlocProvider<PostBloc>(

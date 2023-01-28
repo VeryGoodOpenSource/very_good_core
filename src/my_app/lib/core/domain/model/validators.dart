@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:very_good_core/core/domain/model/failures.dart';
 
+// ignore_for_file: prefer-static-class
 Either<Failure, String> validateEmailAddress(String email) {
   final bool isEmailValid = EmailValidator.validate(email, true);
 

@@ -29,7 +29,7 @@ abstract class ValueObject<T> {
   bool isValid() => value.isRight();
 
   @override
-  String toString() => 'Value:${value.toString()}';
+  String toString() => 'Value:$value';
 }
 
 class UniqueId extends ValueObject<String> {

@@ -49,10 +49,6 @@ class ChopperConfig {
 
   static ChopperClient get client => ChopperClient(
         baseUrl: ChopperConfig.baseUrl,
-        services: ChopperConfig.services,
-        converter: ChopperConfig.converter,
-        interceptors: ChopperConfig.interceptors,
-        //TODO: remove once you have APIs with verified certificate
         client: !kIsWeb
             ? IOClient(
                 HttpClient()
@@ -60,5 +56,8 @@ class ChopperConfig {
                       (X509Certificate cert, String host, int port) => true,
               )
             : null,
+        interceptors: ChopperConfig.interceptors,
+        converter: ChopperConfig.converter,
+        services: ChopperConfig.services,
       );
 }

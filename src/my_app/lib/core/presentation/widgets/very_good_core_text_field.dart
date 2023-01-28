@@ -51,29 +51,47 @@ class VeryGoodCoreTextField extends StatelessWidget {
 
     return Semantics(
       key: Key(labelText),
-      label: labelText,
       textField: true,
+      label: labelText,
       child: Padding(
         padding: padding ?? EdgeInsets.symmetric(horizontal: Insets.med),
         child: textInputType == TextInputType.visiblePassword || isPassword
             ? _PasswordTextField(
                 controller: controller,
-                textInputAction: textInputAction,
-                hintText: hintText,
                 onChanged: onChanged,
                 autofocus: autofocus,
-                focusNode: focusNode,
                 onSubmitted: onSubmitted,
+                textInputAction: textInputAction,
+                focusNode: focusNode,
+                hintText: hintText,
                 labelText: labelText,
               )
             : TextField(
                 controller: controller,
+                focusNode: focusNode,
+                decoration: decoration ??
+                    InputDecoration(
+                      labelText: labelText,
+                      hintText: hintText,
+                      hintStyle: hintTextStyle,
+                      contentPadding: contentPadding,
+                      suffix: suffix,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: colorScheme.primary),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: colorScheme.secondary),
+                      ),
+                    ),
                 keyboardType: textInputType,
                 textInputAction: textInputAction,
-                maxLength: maxLength,
+                style: style ??
+                    AppTextStyle.bodyLarge
+                        .copyWith(color: colorScheme.onSurface),
                 textAlign: textAlign,
                 autofocus: autofocus,
-                focusNode: focusNode,
+                maxLength: maxLength,
+                onChanged: onChanged,
                 onSubmitted: onSubmitted,
                 buildCounter: (
                   _, {
@@ -82,26 +100,6 @@ class VeryGoodCoreTextField extends StatelessWidget {
                   bool? isFocused,
                 }) =>
                     null,
-                decoration: decoration ??
-                    InputDecoration(
-                      labelText: labelText,
-                      hintText: hintText,
-                      suffix: suffix,
-                      contentPadding: contentPadding,
-                      hintStyle: hintTextStyle,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: colorScheme.secondary),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: colorScheme.primary,
-                        ),
-                      ),
-                    ),
-                style: style ??
-                    AppTextStyle.bodyText1
-                        .copyWith(color: colorScheme.onSurface),
-                onChanged: onChanged,
               ),
       ),
     );
@@ -139,37 +137,35 @@ class _PasswordTextField extends HookWidget {
         Expanded(
           child: Semantics(
             child: TextField(
-              style:
-                  AppTextStyle.bodyText1.copyWith(color: colorScheme.onSurface),
-              obscureText: isPasswordHidden.value,
               controller: controller,
-              onChanged: onChanged,
-              autofocus: autofocus,
-              textAlign: TextAlign.left,
-              textInputAction: textInputAction,
-              onSubmitted: onSubmitted,
               focusNode: focusNode,
               decoration: InputDecoration(
                 labelText: labelText,
                 hintText: hintText,
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: colorScheme.secondary),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: colorScheme.primary,
-                  ),
-                ),
                 suffixIcon: GestureDetector(
                   key: const Key('password_icon'),
+                  onTap: () => isPasswordHidden.value = !isPasswordHidden.value,
                   child: Icon(
                     isPasswordHidden.value
                         ? Icons.visibility_off
                         : Icons.visibility,
                   ),
-                  onTap: () => isPasswordHidden.value = !isPasswordHidden.value,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: colorScheme.primary),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: colorScheme.secondary),
                 ),
               ),
+              textInputAction: textInputAction,
+              style:
+                  AppTextStyle.bodyLarge.copyWith(color: colorScheme.onSurface),
+              textAlign: TextAlign.left,
+              autofocus: autofocus,
+              obscureText: isPasswordHidden.value,
+              onChanged: onChanged,
+              onSubmitted: onSubmitted,
             ),
           ),
         ),

@@ -133,7 +133,7 @@ class VeryGoodCoreBloc extends Cubit<VeryGoodCoreState> {
 
       final Option<User> user = await _userRepository.user;
       await user.fold(
-        () async => logout(
+        () => logout(
           isLoading: true,
         ), // logout if there is no user found, isLoading is true since current state is still in loading
         (User user) async => emit(

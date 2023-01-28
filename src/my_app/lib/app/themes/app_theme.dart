@@ -18,19 +18,19 @@ abstract class AppTheme {
       );
 
   static TextTheme get _textTheme => TextTheme(
-        headline1: AppTextStyle.headline1,
-        headline2: AppTextStyle.headline2,
-        headline3: AppTextStyle.headline3,
-        headline4: AppTextStyle.headline4,
-        headline5: AppTextStyle.headline5,
-        headline6: AppTextStyle.headline6,
-        subtitle1: AppTextStyle.subtitle1,
-        subtitle2: AppTextStyle.subtitle2,
-        bodyText1: AppTextStyle.bodyText1,
-        bodyText2: AppTextStyle.bodyText2,
-        caption: AppTextStyle.caption,
-        overline: AppTextStyle.overline,
-        button: AppTextStyle.button,
+        displayLarge: AppTextStyle.displayLarge,
+        displayMedium: AppTextStyle.displayMedium,
+        displaySmall: AppTextStyle.displaySmall,
+        headlineMedium: AppTextStyle.headlineMedium,
+        headlineSmall: AppTextStyle.headlineSmall,
+        titleLarge: AppTextStyle.titleLarge,
+        titleMedium: AppTextStyle.titleMedium,
+        titleSmall: AppTextStyle.titleSmall,
+        bodyLarge: AppTextStyle.bodyLarge,
+        bodyMedium: AppTextStyle.bodyMedium,
+        bodySmall: AppTextStyle.bodySmall,
+        labelLarge: AppTextStyle.labelLarge,
+        labelSmall: AppTextStyle.labelSmall,
       );
 
   static const double defaultRadius = 16;

@@ -8,9 +8,9 @@ class EmptyPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        width: double.infinity,
-        color: Theme.of(context).colorScheme.background,
         padding: EdgeInsets.symmetric(horizontal: Insets.lg),
+        color: Theme.of(context).colorScheme.background,
+        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -21,16 +21,16 @@ class EmptyPost extends StatelessWidget {
                   Theme.of(context).colorScheme.onBackground.withOpacity(0.25),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: Insets.xs, top: Insets.sm),
+              padding: EdgeInsets.only(top: Insets.sm, bottom: Insets.xs),
               child: Text(
                 context.l10n.post__empty_post__empty_post_message,
-                textAlign: TextAlign.center,
-                style: AppTextStyle.headline6.copyWith(
+                style: AppTextStyle.titleLarge.copyWith(
                   color: Theme.of(context)
                       .colorScheme
                       .onBackground
                       .withOpacity(0.25),
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
           ],
