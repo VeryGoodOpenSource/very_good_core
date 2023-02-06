@@ -1,3 +1,8 @@
+# 0.1.12
+
+- feat: upgrade to bloc ^8.1.1
+- feat: upgrade to Flutter 3.7.1
+
 # 0.1.11
 
 - feat: upgrade to Flutter 3.7.0
