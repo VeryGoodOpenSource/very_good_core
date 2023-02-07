@@ -1,3 +1,7 @@
+# 0.1.13
+
+- feat: upgrade to `very_good_analysis ^4.0.0`
+
 # 0.1.12
 
 - feat: upgrade bloc
