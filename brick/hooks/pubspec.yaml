@@ -7,4 +7,4 @@ dependencies:
   mason: ^0.1.0-dev.40
 
 dev_dependencies:
-  very_good_analysis: ^3.1.0
+  very_good_analysis: ^4.0.0
