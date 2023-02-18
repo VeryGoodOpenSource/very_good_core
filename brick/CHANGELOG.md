@@ -1,3 +1,7 @@
+# 0.1.14
+
+- fix: upgrade to `flutter 3.7.3` to meet very_good_analysis requirements (requires at least `flutter 3.7.1`)
+
 # 0.1.13
 
 - feat: upgrade to `very_good_analysis ^4.0.0`
