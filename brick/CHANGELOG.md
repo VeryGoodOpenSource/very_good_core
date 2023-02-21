@@ -1,3 +1,8 @@
+# 0.1.14
+
+- feat: update workflows and add spellcheck
+- chore: remove explicit Flutter version constraint
+
 # 0.1.13
 
 - feat: upgrade to `very_good_analysis ^4.0.0`
