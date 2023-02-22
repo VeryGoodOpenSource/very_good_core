@@ -4,6 +4,11 @@ import 'package:path/path.dart' as path;
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
+/// Exit code indicating a command completed successfully.
+///
+/// [Source](https://www.freebsd.org/cgi/man.cgi?query=sysexits).
+const _sucessfulExitCode = 0;
+
 void main() {
   group('very_good_core brick', () {
     test(
@@ -20,7 +25,7 @@ void main() {
         );
         expect(
           masonCliGetResult.exitCode,
-          equals(0),
+          equals(_sucessfulExitCode),
           reason: '`dart pub global activate mason_cli` failed',
         );
         expect(
@@ -48,8 +53,10 @@ void main() {
 
         final rootPath = directory.parent.parent.parent.path;
         final brickPath = path.join(rootPath, 'brick');
-        final relativeBrickPath =
-            path.relative(brickPath, from: directory.path);
+        final relativeBrickPath = path.relative(
+          brickPath,
+          from: directory.path,
+        );
         final masonAddResult = await Process.run(
           'mason',
           ['add', 'very_good_core', '--path', relativeBrickPath],
@@ -58,7 +65,7 @@ void main() {
         );
         expect(
           masonAddResult.exitCode,
-          0,
+          equals(_sucessfulExitCode),
           reason: '`mason add very_good_core --path $relativeBrickPath` failed',
         );
         expect(
@@ -68,7 +75,7 @@ void main() {
         );
 
         final vars = {
-          'project_name': 'test',
+          'project_name': 'test_app',
           'org_name': 'very_good_ventures',
           'application_id': 'verygood.ventures.test',
           'description': 'very_good_core test',
@@ -83,7 +90,7 @@ void main() {
         );
         expect(
           masonMakeResult.exitCode,
-          0,
+          equals(_sucessfulExitCode),
           reason: '`mason make very_good_core ${variables.join(' ')}` failed',
         );
         expect(
@@ -92,7 +99,7 @@ void main() {
           reason: '`mason make very_good_core ${variables.join(' ')}` failed',
         );
 
-        // TODO(alestiago): figure out why this is 'my_app' and not 'very_good_core_test'
+        // TODO(alestiago): figure out why this is 'my_app' and not 'test_app'
         final applicationPath = path.join(directory.path, 'my_app');
 
         final flutterPubGetResult = await Process.run(
@@ -103,7 +110,7 @@ void main() {
         );
         expect(
           flutterPubGetResult.exitCode,
-          0,
+          equals(_sucessfulExitCode),
           reason: '`flutter pub get` failed',
         );
         expect(
@@ -120,7 +127,7 @@ void main() {
         );
         expect(
           flutterTest.exitCode,
-          0,
+          equals(_sucessfulExitCode),
           reason: '`flutter test` failed',
         );
         expect(
