@@ -8,7 +8,7 @@ Collection of end to end tests for very_good_core.
 
 ## Running Tests 🧪
 
-To run all unit tests:
+To run all tests:
 
 ```sh
 dart pub global activate coverage 1.2.0
@@ -24,6 +24,13 @@ genhtml coverage/lcov.info -o coverage/
 
 # Open Coverage Report
 open coverage/index.html
+```
+
+If you wish, you can specify tags as defined in [`dart_test.yaml`](./dart_test.yaml) to test those with a matching tag, for example:
+
+```sh
+# Run tests with an e2e tag
+dart test -t "e2e"
 ```
 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
