@@ -1,6 +1,5 @@
 name: e2e
 description: VeryGoodCore's end-to-end testing package.
-version: 0.1.0+1
 publish_to: none
 
 environment:
