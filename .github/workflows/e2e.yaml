@@ -5,15 +5,9 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  push:
-    paths:
-      - "tool/e2e/**"
-      - ".github/workflows/e2e.yaml"
-
   pull_request:
-    paths:
-      - "tool/e2e/**"
-      - ".github/workflows/e2e.yaml"
+    branches:
+      - main
 
 jobs:
   build:
