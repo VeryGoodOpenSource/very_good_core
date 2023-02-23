@@ -1,3 +1,6 @@
+@Tags(['e2e'])
+library e2e;
+
 import 'dart:io';
 
 import 'package:path/path.dart' as path;
