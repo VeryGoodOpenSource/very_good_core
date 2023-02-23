@@ -19,13 +19,14 @@ void main() {
       'creates a tested application',
       timeout: const Timeout(Duration(minutes: 2)),
       () async {
-        final directory = Directory.systemTemp.createTempSync();
-
         final rootPath = Directory.current.parent.parent.path;
         final brickPath = path.join(rootPath, 'brick');
         final brick = Brick.path(brickPath);
         final masonGenerator = await MasonGenerator.fromBrick(brick);
-        final directoryGeneratorTarget = DirectoryGeneratorTarget(directory);
+        final tempDirectory = Directory.systemTemp.createTempSync();
+        final directoryGeneratorTarget = DirectoryGeneratorTarget(
+          tempDirectory,
+        );
         final vars = <String, dynamic>{
           'project_name': 'test_app',
           'org_name': 'very_good_ventures',
@@ -72,7 +73,7 @@ void main() {
           reason: '`flutter test` failed',
         );
 
-        directory.deleteSync(recursive: true);
+        tempDirectory.deleteSync(recursive: true);
       },
     );
   });
