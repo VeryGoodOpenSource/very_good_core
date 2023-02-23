@@ -3,6 +3,7 @@ library e2e;
 
 import 'dart:io';
 
+import 'package:mason/mason.dart';
 import 'package:path/path.dart' as path;
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
@@ -18,93 +19,25 @@ void main() {
       'creates a tested application',
       timeout: const Timeout(Duration(minutes: 2)),
       () async {
-        final directory = Directory.current.createTempSync();
+        final directory = Directory.systemTemp.createTempSync();
 
-        final masonCliGetResult = await Process.run(
-          'dart',
-          ['pub', 'global', 'activate', 'mason_cli'],
-          workingDirectory: directory.path,
-          runInShell: true,
-        );
-        expect(
-          masonCliGetResult.exitCode,
-          equals(_sucessfulExitCode),
-          reason: '`dart pub global activate mason_cli` failed',
-        );
-        expect(
-          masonCliGetResult.stderr,
-          isEmpty,
-          reason: '`dart pub global activate mason_cli` failed',
-        );
-
-        final masonInitResult = await Process.run(
-          'mason',
-          ['init'],
-          workingDirectory: directory.path,
-          runInShell: true,
-        );
-        expect(
-          masonInitResult.exitCode,
-          0,
-          reason: '`mason init` failed',
-        );
-        expect(
-          masonInitResult.stderr,
-          isEmpty,
-          reason: '`mason init` failed',
-        );
-
-        final rootPath = directory.parent.parent.parent.path;
+        final rootPath = Directory.current.parent.parent.path;
         final brickPath = path.join(rootPath, 'brick');
-        final relativeBrickPath = path.relative(
-          brickPath,
-          from: directory.path,
-        );
-        final masonAddResult = await Process.run(
-          'mason',
-          ['add', 'very_good_core', '--path', relativeBrickPath],
-          workingDirectory: directory.path,
-          runInShell: true,
-        );
-        expect(
-          masonAddResult.exitCode,
-          equals(_sucessfulExitCode),
-          reason: '`mason add very_good_core --path $relativeBrickPath` failed',
-        );
-        expect(
-          masonAddResult.stderr,
-          isEmpty,
-          reason: '`mason add very_good_core --path $relativeBrickPath` failed',
-        );
-
-        final vars = {
+        final brick = Brick.path(brickPath);
+        final masonGenerator = await MasonGenerator.fromBrick(brick);
+        final directoryGeneratorTarget = DirectoryGeneratorTarget(directory);
+        final vars = <String, dynamic>{
           'project_name': 'test_app',
           'org_name': 'very_good_ventures',
           'application_id': 'verygood.ventures.test',
           'description': 'very_good_core test',
         };
-        final variables =
-            vars.entries.map((entry) => '--${entry.key} ${entry.value}');
-        final masonMakeResult = await Process.run(
-          'mason',
-          ['make', 'very_good_core', ...variables],
-          workingDirectory: directory.path,
-          runInShell: true,
-        );
-        expect(
-          masonMakeResult.exitCode,
-          equals(_sucessfulExitCode),
-          reason: '`mason make very_good_core ${variables.join(' ')}` failed',
-        );
-        expect(
-          masonMakeResult.stderr,
-          isEmpty,
-          reason: '`mason make very_good_core ${variables.join(' ')}` failed',
-        );
+        await masonGenerator.generate(directoryGeneratorTarget, vars: vars);
 
-        // TODO(alestiago): figure out why this is 'my_app' and not 'test_app'
-        final applicationPath = path.join(directory.path, 'my_app');
-
+        final applicationPath = path.join(
+          directoryGeneratorTarget.dir.path,
+          vars['project_name'] as String,
+        );
         final flutterPubGetResult = await Process.run(
           'flutter',
           ['pub', 'get'],
