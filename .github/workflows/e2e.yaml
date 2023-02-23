@@ -1,18 +1,22 @@
-name: ci
+name: e2e
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 on:
+  push:
+    paths:
+      - "tool/e2e/**"
+      - ".github/workflows/e2e.yaml"
+
   pull_request:
-    branches:
-      - main
+    paths:
+      - "tool/e2e/**"
+      - ".github/workflows/e2e.yaml"
 
 jobs:
-  semantic_pull_request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
-
+    with:
+      working_directory: tool/e2e
