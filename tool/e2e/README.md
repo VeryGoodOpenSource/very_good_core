@@ -26,7 +26,7 @@ genhtml coverage/lcov.info -o coverage/
 open coverage/index.html
 ```
 
-If you wish, you can specify tags, as defined in [`dart_test.yaml`](./dart_test.yaml), to test those with a matching tag. For example:
+If you wish, you can specify tags, as defined in [`dart_test.yaml`](./dart_test.yaml), to test those tests with a matching tag. For example:
 
 ```sh
 # Run tests with an e2e tag
