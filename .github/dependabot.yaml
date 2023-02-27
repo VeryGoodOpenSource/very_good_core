@@ -16,3 +16,7 @@ updates:
     directory: "/src/my_app"
     schedule:
       interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "/tool/e2e"
+    schedule:
+      interval: "daily"
