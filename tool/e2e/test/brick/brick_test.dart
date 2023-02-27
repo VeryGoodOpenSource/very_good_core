@@ -5,8 +5,7 @@ import 'dart:io';
 
 import 'package:mason/mason.dart';
 import 'package:path/path.dart' as path;
-import 'package:test/expect.dart';
-import 'package:test/scaffolding.dart';
+import 'package:test/test.dart';
 
 /// Exit code indicating a command completed successfully.
 ///
