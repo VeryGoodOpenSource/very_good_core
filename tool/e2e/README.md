@@ -35,7 +35,9 @@ dart test -t "e2e"
 
 ### Updating Fixtures 📑
 
-Some end to end tests compare the results against already generated files (similar to [matchesGoldenFile](https://api.flutter.dev/flutter/flutter_test/matchesGoldenFile.html) in Flutter). To generate new files:
+Some end to end tests compare the results against already generated files (similar to [matchesGoldenFile](https://api.flutter.dev/flutter/flutter_test/matchesGoldenFile.html) in Flutter).
+
+To generate new files:
 
 ```
 # 🎯 Activate mason from https://pub.dev
