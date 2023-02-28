@@ -33,7 +33,7 @@ If you wish, you can specify tags, as defined in [`dart_test.yaml`](./dart_test.
 dart test -t "e2e"
 ```
 
-### Updating Fixture
+### Updating Fixtures 📑
 
 Some end to end tests compare the results against already generated files (similar to [matchesGoldenFile](https://api.flutter.dev/flutter/flutter_test/matchesGoldenFile.html) in Flutter). To generate new files:
 
