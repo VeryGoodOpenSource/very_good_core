@@ -39,7 +39,7 @@ Some end to end tests compare the results against already generated files (simil
 
 To generate new files:
 
-```
+```sh
 # 🎯 Activate mason from https://pub.dev
 dart pub global activate mason_cli
 
