@@ -102,9 +102,9 @@ void main() {
         );
 
         final fixturesPath = path.join(rootPath, 'tool', 'e2e', 'fixtures');
-        final fixturesConfig = path.join(fixturesPath, 'test_app_config.json');
-        final fileString = File(fixturesConfig).readAsStringSync();
-        var vars = jsonDecode(fileString) as Map<String, dynamic>;
+        final fixtureConfig = path.join(fixturesPath, 'test_app_config.json');
+        final fixtureConfigString = File(fixtureConfig).readAsStringSync();
+        var vars = jsonDecode(fixtureConfigString) as Map<String, dynamic>;
 
         await masonGenerator.hooks.preGen(
           workingDirectory: directoryGeneratorTarget.dir.path,
