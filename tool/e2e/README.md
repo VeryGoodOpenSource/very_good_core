@@ -33,6 +33,21 @@ If you wish, you can specify tags, as defined in [`dart_test.yaml`](./dart_test.
 dart test -t "e2e"
 ```
 
+### Updating Fixture
+
+Some end to end tests compare the results against already generated files (similar to [matchesGoldenFile](https://api.flutter.dev/flutter/flutter_test/matchesGoldenFile.html) in Flutter). To generate new files:
+
+```
+# 🎯 Activate mason from https://pub.dev
+dart pub global activate mason_cli
+
+# 🚀 Install the brick locally (from root)
+mason add --global very_good_core --path ./brick
+
+#  🧱 Generate the fixture (from root)
+mason make very_good_core -c tool/e2e/fixtures/test_app_config.json --on-conflict overwrite -o tool/e2e/fixtures
+```
+
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [logo_black]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_black.png#gh-light-mode-only
