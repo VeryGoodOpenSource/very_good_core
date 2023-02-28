@@ -46,7 +46,7 @@ dart pub global activate mason_cli
 # 🚀 Install the brick locally (from root)
 mason add --global very_good_core --path ./brick
 
-#  🧱 Generate the fixture (from root)
+# 🧱 Generate the fixture (from root)
 mason make very_good_core -c tool/e2e/fixtures/test_app_config.json --on-conflict overwrite -o tool/e2e/fixtures
 ```
 
