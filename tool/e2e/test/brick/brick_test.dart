@@ -174,7 +174,7 @@ class _DirectoryContentMatcher extends Matcher {
       final bytes = file.readAsBytesSync();
       final digest = sha1.convert(bytes);
       if (files[realtivePath] != digest) {
-        _reason.write('Contents of file `$realtivePath` do not match.');
+        _reason.writeln('Contents of file `$realtivePath` do not match.');
       }
     }
 
