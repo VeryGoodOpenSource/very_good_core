@@ -135,6 +135,8 @@ void main() {
         expect(
           Directory(applicationPath),
           _DirectoryContentMatcher(Directory(fixturePath)),
+          reason:
+              'Generated application files do not match with fixture files.',
         );
         tempDirectory.deleteSync(recursive: true);
       },
