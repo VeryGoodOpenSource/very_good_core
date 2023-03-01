@@ -37,4 +37,5 @@ jobs:
         run: dart ./tool/generator/main.dart
 
       - name: 🧪 Run Tests
+        working-directory: tool/e2e
         run: dart test --run-skipped -t e2e
