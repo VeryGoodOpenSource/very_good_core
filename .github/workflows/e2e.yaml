@@ -28,7 +28,7 @@ jobs:
       - name: 📦 Install Dependencies (tool/e2e)
         run: dart pub get
 
-      - name: 📦  Install Dependencies (tool/generator)
+      - name: 📦 Install Dependencies (tool/generator)
         working-directory: tool/generator
         run: dart pub get
 
