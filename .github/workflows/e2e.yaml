@@ -12,9 +12,6 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: "tool/e2e"
 
     steps:
       - name: 📚 Git Checkout
@@ -30,7 +27,6 @@ jobs:
         run: dart pub get
 
       - name: 🏗 Generate Template (tool/generator)
-        working-directory: ./
         run: dart ./tool/generator/main.dart
 
       - name: 📦 Install Dependencies (tool/e2e)
