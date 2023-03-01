@@ -34,7 +34,7 @@ jobs:
 
       - name: 🏗 Generate Template (tool/generator)
         working-directory: tool/generator
-        run: dart ./tool/generator/main.dart
+        run: dart main.dart
 
       - name: 🧪 Run Tests
         run: dart test --run-skipped -t e2e
