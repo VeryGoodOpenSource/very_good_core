@@ -59,12 +59,12 @@ void main() {
         expect(
           flutterPubGetResult.exitCode,
           equals(_sucessfulExitCode),
-          reason: '`flutter pub get` failed',
+          reason: '`flutter pub get` at $applicationPath failed',
         );
         expect(
           flutterPubGetResult.stderr,
           isEmpty,
-          reason: '`flutter pub get` failed',
+          reason: '`flutter pub get` at $applicationPath failed',
         );
 
         final flutterTest = await Process.run(
@@ -76,12 +76,12 @@ void main() {
         expect(
           flutterTest.exitCode,
           equals(_sucessfulExitCode),
-          reason: '`flutter test` failed',
+          reason: '`flutter test` at $applicationPath failed',
         );
         expect(
           flutterTest.stderr,
           isEmpty,
-          reason: '`flutter test` failed',
+          reason: '`flutter test` at $applicationPath failed',
         );
 
         tempDirectory.deleteSync(recursive: true);
