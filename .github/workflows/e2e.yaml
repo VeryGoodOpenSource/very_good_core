@@ -25,8 +25,16 @@ jobs:
         with:
           flutter-version: 3.7.3
 
-      - name: 📦 Install Dependencies
+      - name: 📦 Install Dependencies (tool/e2e)
         run: dart pub get
+
+      - name: 📦  Install Dependencies (tool/generator)
+        working-directory: tool/generator
+        run: dart pub get
+
+      - name: 🏗 Generate Template (tool/generator)
+        working-directory: tool/generator
+        run: dart ./tool/generator/main.dart
 
       - name: 🧪 Run Tests
         run: dart test --run-skipped -t e2e
