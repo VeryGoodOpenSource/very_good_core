@@ -59,15 +59,13 @@ void main() {
         expect(
           flutterPubGetResult.exitCode,
           equals(_sucessfulExitCode),
-          reason:
-              '`flutter pub get` at $applicationPath failedfailed with error:\n '
+          reason: '`flutter pub get` at $applicationPath failed with error:\n '
               '- ${flutterPubGetResult.stderr}',
         );
         expect(
           flutterPubGetResult.stderr,
           isEmpty,
-          reason:
-              '`flutter pub get` at $applicationPath failedfailed with error:\n '
+          reason: '`flutter pub get` at $applicationPath failed with error:\n '
               '- ${flutterPubGetResult.stderr}',
         );
 
