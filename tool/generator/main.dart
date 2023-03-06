@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:git/git.dart';
 import 'package:path/path.dart' as path;
 
 final _sourcePath = path.join('src');
@@ -41,6 +42,15 @@ void main() async {
 
   // Delete Android's Organization Folder Hierarchy
   Directory(_orgPath).deleteSync(recursive: true);
+
+  // Delete ignored files
+  Directory(path.join(_targetPath, 'my_app'))
+      .listSync(recursive: true)
+      .whereType<File>()
+      .where((file) => file.isIgnored())
+      .forEach((file) {
+    file.deleteSync();
+  });
 
   // Convert Values to Variables
   await Future.wait(
@@ -158,5 +168,18 @@ class _Cmd {
 
       throw ProcessException(process, args, message, pr.exitCode);
     }
+  }
+}
+
+extension on File {
+  bool isIgnored() {
+    final path = this.path;
+
+    final result = Process.runSync(
+      'git',
+      'check-ignore $path --quiet'.split(' '),
+    );
+
+    return result.exitCode == 0;
   }
 }
