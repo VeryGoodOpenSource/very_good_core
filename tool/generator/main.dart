@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:git/git.dart';
 import 'package:path/path.dart' as path;
 
 final _sourcePath = path.join('src');
