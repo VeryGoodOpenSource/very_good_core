@@ -47,9 +47,7 @@ void main() async {
       .listSync(recursive: true)
       .whereType<File>()
       .where((file) => file.isIgnored())
-      .forEach((file) {
-    file.deleteSync();
-  });
+      .forEach((file) => file.deleteSync());
 
   // Convert Values to Variables
   await Future.wait(
