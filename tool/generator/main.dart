@@ -172,11 +172,9 @@ class _Cmd {
 
 extension on File {
   bool isIgnored() {
-    final path = this.path;
-
     final result = Process.runSync(
       'git',
-      'check-ignore $path --quiet'.split(' '),
+      'check-ignore ${this.path} --quiet'.split(' '),
     );
 
     return result.exitCode == 0;
