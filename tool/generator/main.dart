@@ -42,6 +42,13 @@ void main() async {
   // Delete Android's Organization Folder Hierarchy
   Directory(_orgPath).deleteSync(recursive: true);
 
+  // Delete ignored files
+  Directory(path.join(_targetPath, 'my_app'))
+      .listSync(recursive: true)
+      .whereType<File>()
+      .where((file) => file.isIgnored())
+      .forEach((file) => file.deleteSync());
+
   // Convert Values to Variables
   await Future.wait(
     Directory(path.join(_targetPath, 'my_app'))
@@ -158,5 +165,16 @@ class _Cmd {
 
       throw ProcessException(process, args, message, pr.exitCode);
     }
+  }
+}
+
+extension on File {
+  bool isIgnored() {
+    final result = Process.runSync(
+      'git',
+      'check-ignore ${this.path} --quiet'.split(' '),
+    );
+
+    return result.exitCode == 0;
   }
 }
