@@ -22,22 +22,28 @@ class CounterView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
-      body: const Center(child: CounterText()),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            onPressed: () => context.read<CounterCubit>().increment(),
-            child: const Icon(Icons.add),
-          ),
-          const SizedBox(height: 8),
-          FloatingActionButton(
-            onPressed: () => context.read<CounterCubit>().decrement(),
-            child: const Icon(Icons.remove),
-          ),
-        ],
+      body: SizedBox.expand(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () => context.read<CounterCubit>().increment(),
+              child: const Icon(Icons.add),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(l10n.counterAppBarTitle),
+            const CounterText(),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () => context.read<CounterCubit>().decrement(),
+              child: const Icon(Icons.remove),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -50,6 +56,6 @@ class CounterText extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final count = context.select((CounterCubit cubit) => cubit.state);
-    return Text('$count', style: theme.textTheme.displayLarge);
+    return Text('$count', style: theme.textTheme.displayMedium);
   }
 }
