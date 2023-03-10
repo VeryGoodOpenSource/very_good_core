@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.veryGoodCore">
+   <uses-feature android:name="android.hardware.type.watch" />
    <application
         android:label="very_good_core"
         android:name="${applicationName}"
@@ -30,5 +31,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+       <meta-data
+           android:name="com.google.android.wearable.standalone"
+           android:value="true" />
     </application>
 </manifest>
