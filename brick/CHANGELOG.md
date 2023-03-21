@@ -1,3 +1,10 @@
+# 0.1.15
+
+- chore: support dart sdk 2.18.0
+- fix: rollback very_good_analysis to 3.1.0
+- test: include e2e test
+
+
 # 0.1.14
 
 - feat: update workflows and add spellcheck
