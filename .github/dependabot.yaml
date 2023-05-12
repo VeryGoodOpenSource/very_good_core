@@ -17,6 +17,6 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
-    directory: "/tool/e2e"
+    directory: "/e2e"
     schedule:
       interval: "daily"
