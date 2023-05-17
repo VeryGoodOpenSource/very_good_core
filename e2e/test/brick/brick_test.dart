@@ -18,7 +18,7 @@ void main() {
       'creates a tested application',
       timeout: const Timeout(Duration(minutes: 2)),
       () async {
-        final rootPath = Directory.current.parent.parent.path;
+        final rootPath = Directory.current.parent.path;
         final brickPath = path.join(rootPath, 'brick');
         final brick = Brick.path(brickPath);
         final masonGenerator = await MasonGenerator.fromBrick(brick);
