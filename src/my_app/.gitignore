@@ -101,7 +101,6 @@ unlinked_spec.ds
 coverage/
 
 # Submodules
-!pubspec.lock
 packages/**/pubspec.lock
 
 # Web related
