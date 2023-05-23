@@ -1,3 +1,9 @@
+# 0.3.0
+
+- feat!: update to Flutter 3.10.0
+- fix: use valid app label
+- feat: update bloc
+
 # 0.2.0
 
 - feat!: bump min Dart SDK to 2.19.0
