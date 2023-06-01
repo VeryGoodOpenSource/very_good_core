@@ -158,7 +158,13 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
     }
 }
 ```
+### Generating the translations
 
+In order to use the translations, you need to generate them. From the root folder of the app, run the following command:
+
+```
+flutter gen-l10n
+```
 [coverage_badge]: src/my_app/coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
 [internationalization_link]: https://flutter.dev/docs/development/accessibility-and-localization/internationalization
