@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="{{org_name.dotCase()}}.{{project_name.snakeCase()}}">
+    package="{{application_id_android}}">
    <application
         android:label="${appName}"
         android:name="${applicationName}"
