@@ -161,10 +161,15 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 
 ### Generating Translations
 
-To use the latest translations changes, you will need to generate them. You have two options:
+To use the latest translations changes, you will need to generate them:
 
-- Run `flutter run` and code generation takes place automatically.
-- Alternatively, if you would like to avoid running the entire application, you can run `flutter gen-l10n` to generate the localization files.
+1. Generate localizations for the current project:
+
+```sh
+flutter gen-l10n --arb-dir="lib/l10n/arb"
+```
+
+Alternatively, run `flutter run` and code generation will take place automatically.
 
 [coverage_badge]: src/my_app/coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
