@@ -16,11 +16,11 @@ dependencies:
   intl: ^0.18.0
 
 dev_dependencies:
-  bloc_test: ^9.1.2
+  bloc_test: ^9.1.4
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.0
-  very_good_analysis: ^5.0.0
+  very_good_analysis: ^5.1.0
 
 flutter:
   uses-material-design: true
