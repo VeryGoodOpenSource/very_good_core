@@ -20,7 +20,7 @@ migrate_working_dir/
 .classpath
 .project
 .settings/
-.vscode/
+.vscode/*
 
 # packages file containing multi-root paths
 .packages.generated
