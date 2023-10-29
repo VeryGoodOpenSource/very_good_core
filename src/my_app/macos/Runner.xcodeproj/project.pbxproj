@@ -476,7 +476,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -605,7 +604,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -628,7 +626,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -719,7 +716,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "[STG] Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -818,7 +814,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "[DEV] Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "[DEV] Very Good Core";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -910,7 +905,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "[DEV] Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1001,7 +995,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "[STG] Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1092,7 +1085,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "[DEV] Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1183,7 +1175,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FLAVOR_APP_NAME = "[STG] Very Good Core";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
