@@ -44,7 +44,7 @@ jobs:
         run: cd test/test_app
 
       - name: 📦 Install Dependencies
-        run: cd test/test_app && flutter pub get --disable-telemetry
+        run: cd test/test_app && flutter clean && flutter pub get --disable-telemetry
 
       - name: ✨ Check Formatting
         run: dart format --set-exit-if-changed .
