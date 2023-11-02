@@ -1,0 +1,9 @@
+name: very_good_core_hooks
+
+on: pull_request
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    with:
+      working_directory: "brick/hooks"
