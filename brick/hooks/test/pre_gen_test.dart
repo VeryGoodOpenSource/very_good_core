@@ -7,7 +7,7 @@ import '../pre_gen.dart' as pre_gen;
 class _MockHookContext extends Mock implements HookContext {}
 
 void main() {
-  group('pre gen', () {
+  group('pre_gen', () {
     late HookContext context;
 
     setUp(() {
@@ -29,7 +29,7 @@ void main() {
       });
 
       test(
-        '''when not specified sets to `org_name + "." + project_name(snake_case)`''',
+        '''when not specified is set to `org_name + "." + project_name(snake_case)`''',
         () {
           final vars = <String, String>{
             'project_name': 'Project Name',
@@ -62,7 +62,7 @@ void main() {
       });
 
       test(
-        '''when not specified sets to `org_name + "." + project_name(param-case)`''',
+        '''when not specified is set to `org_name + "." + project_name(param-case)`''',
         () {
           final vars = <String, String>{
             'project_name': 'Project Name',
