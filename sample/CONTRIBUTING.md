@@ -12,3 +12,10 @@ mason get
 # Make `very_good_core` using the generator template (from sample/):
 mason make very_good_core -c "brick_config.json"
 ```
+
+3. Generate the new brick from `very_good_core2` into `sample` as `app2`.
+
+```sh
+# Make `very_good_core2` using the generator template (from sample/):
+mason make very_good_core2 -c "brick_config.json"
+```

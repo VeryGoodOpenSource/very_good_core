@@ -1,3 +1,5 @@
 bricks:
   very_good_core:
     path: ../brick
+  very_good_core2:
+    path: ../very_good_core2
