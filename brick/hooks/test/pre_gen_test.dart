@@ -15,18 +15,6 @@ void main() {
     });
 
     group('application_id_android', () {
-      test('unchanged if application_id is specified', () {
-        final vars = <String, String>{
-          'project_name': 'project_name',
-          'org_name': 'org_name',
-          'application_id': 'com.example.app',
-        };
-        when(() => context.vars).thenReturn(vars);
-
-        pre_gen.run(context);
-        expect(context.vars['application_id_android'], 'com.example.app');
-      });
-
       test('when specified is unmodified', () {
         final vars = <String, String>{
           'project_name': 'project_name',
