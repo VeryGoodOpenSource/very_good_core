@@ -26,13 +26,22 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        flutter-version:
+          # The version of Flutter to use should use the minimum Dart SDK version supported by the package,
+          # refer to https://docs.flutter.dev/development/tools/sdk/releases.
+          - "3.13.0"
+          - "any"
+
     steps:
       - name: 📚 Git Checkout
         uses: actions/checkout@v4
 
-      # TODO(alestiago): Run matrix on min supported Flutter version and latest
       - name: 🐦 Setup Flutter
         uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter-version }}
 
       - name: 🧱 Mason Make
         run: |
