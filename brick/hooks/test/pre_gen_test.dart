@@ -24,6 +24,7 @@ void main() {
         when(() => context.vars).thenReturn(vars);
 
         pre_gen.run(context);
+
         expect(context.vars['application_id_android'], 'com.example.app');
       });
 
@@ -37,6 +38,7 @@ void main() {
           when(() => context.vars).thenReturn(vars);
 
           pre_gen.run(context);
+
           expect(
             context.vars['application_id_android'],
             'org_name.project_name',
@@ -55,6 +57,7 @@ void main() {
         when(() => context.vars).thenReturn(vars);
 
         pre_gen.run(context);
+
         expect(context.vars['application_id'], 'com.example.app');
       });
 
@@ -68,6 +71,7 @@ void main() {
           when(() => context.vars).thenReturn(vars);
 
           pre_gen.run(context);
+
           expect(
             context.vars['application_id'],
             'org_name.project-name',
