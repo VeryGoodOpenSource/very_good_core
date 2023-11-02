@@ -44,7 +44,9 @@ jobs:
         run: cd test/test_app
 
       - name: 📦 Install Dependencies
-        run: cd test/test_app && flutter clean && flutter pub get --disable-telemetry
+        run: |
+          dart pub global activate very_good_cli
+          very_good packages get --recursive
 
       - name: ✨ Check Formatting
         run: dart format --set-exit-if-changed .
@@ -53,9 +55,7 @@ jobs:
         run: dart analyze --fatal-infos --fatal-warnings .
 
       - name: 🧪 Run Tests
-        run: |
-          dart pub global activate very_good_cli
-          very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
+        run: very_good test -j 4 --recursive --optimization --coverage --test-randomize-ordering-seed random
 
       - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v2
