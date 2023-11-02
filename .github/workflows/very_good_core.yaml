@@ -34,9 +34,6 @@ jobs:
       - name: 🐦 Setup Flutter
         uses: subosito/flutter-action@v2
 
-      - name: 📦 Install Dependencies
-        run: dart pub get
-
       - name: 🧱 Mason Make
         run: |
           dart pub global activate mason_cli
@@ -46,7 +43,7 @@ jobs:
       - name: 👉 Change Directory
         run: cd test/test_app
 
-      - name: 📦 Install Template Dependencies
+      - name: 📦 Install Dependencies
         run: flutter pub get
 
       - name: ✨ Check Formatting
