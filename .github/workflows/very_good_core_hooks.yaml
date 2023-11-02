@@ -1,6 +1,16 @@
 name: very_good_core_hooks
 
-on: pull_request
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/very_good_core_hooks.yaml"
+      - "brick/hooks/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/very_good_core_hooks.yaml"
+      - "brick/hooks/**"
 
 jobs:
   build:
