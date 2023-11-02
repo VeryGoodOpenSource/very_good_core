@@ -7,4 +7,6 @@ dependencies:
   mason: ^0.1.0-dev.50
 
 dev_dependencies:
+  mocktail: ^1.0.0
+  test: ^1.19.2
   very_good_analysis: ^5.1.0
