@@ -13,9 +13,26 @@ A Very Good Flutter Starter Project created by the Very Good Ventures Team 🦄
 
 ---
 
+## What's Included ✨
+
+Out of the box, Very Good Core includes:
+
+- ✅ [Cross Platform Support][flutter_cross_platform_link] - Built-in support for iOS, Android, Web, and Windows (MacOS/Linux coming soon!)
+- ✅ [Build Flavors][flutter_flavors_link] - Multiple flavor support for development, staging, and production
+- ✅ [Internationalization Support][internationalization_link] - Internationalization support using synthetic code generation to streamline the development process
+- ✅ [Sound Null-Safety][null_safety_link] - No more null-dereference exceptions at runtime. Develop with a sound, static type system.
+- ✅ [Bloc][bloc_link] - Integrated bloc architecture for scalable, testable code which offers a clear separation between business logic and presentation
+- ✅ [Testing][testing_link] - Unit and Widget Tests with 100% line coverage (Integration Tests coming soon!)
+- ✅ [Logging][logging_link] - Built-in, extensible logging to capture uncaught Flutter and Dart Exceptions
+- ✅ [Very Good Analysis][very_good_analysis_link] - Strict Lint Rules which are used at [Very Good Ventures][very_good_ventures_link]
+- ✅ [Continuous Integration][github_actions_link] - Lint, format, test, and enforce code coverage using [GitHub Actions][github_actions_link]
+- ✅ Dependabot Integration
+
+_\* Learn more at [Flutter Starter App: Very Good Core & CLI][very_good_cli_blog_link]_
+
 ## Quick Start 🚀
 
-1. Install a valid [Flutter SDK](https://docs.flutter.dev/get-started/install) in your local environment. Compatible Flutter SDK versions with [Very Good CLI][very_good_cli_link] can be found within the [pubspec.yaml](brick/__brick__/pub), ensure it has a Dart version compatible with [Very Good CLI's Dart version constraint](https://github.com/VeryGoodOpenSource/very_good_cli/blob/main/pubspec.yaml).
+1. Install a valid [Flutter SDK](https://docs.flutter.dev/get-started/install) in your local environment. Compatible Flutter SDK versions with [Very Good CLI][very_good_cli_link] can be found within the [Flutter release archive](https://docs.flutter.dev/release/archive), ensure it has a Dart version compatible with [Very Good CLI's Dart version constraint](https://github.com/VeryGoodOpenSource/very_good_cli/blob/main/pubspec.yaml).
 
 2. Install [Very Good CLI][very_good_cli_link]:
 
@@ -31,7 +48,7 @@ very_good create flutter_app <project-name>
 
 Where `<project-name>` is the name of your project.
 
-💡 **Note**: Optionally you can [generate a project using Very Good Core with mason](https://brickhub.dev/bricks/very_good_core/0.4.0#usage).
+💡 **Note**: Optionally, you can [generate a project using Very Good Core with mason](https://brickhub.dev/bricks/very_good_core/0.4.0#usage).
 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
