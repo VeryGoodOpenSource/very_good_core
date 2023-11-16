@@ -48,9 +48,7 @@ mason get
 mason make very_good_core --config-path brick/config.json --output-dir output --watch
 ```
 
-This will generate a project using Very Good Core under [`output`](output) with the variables specified by the [configuration](brick/config.json) file. When any file under [`brick`](brick) is changed.
-
-💡 **Note**: If you are debugging the template's generation you can change the [configuration](brick/config.json) file to dynamically view its effect on the generation.
+This will generate a project using Very Good Core under [`output`](output) with the variables specified by the [configuration](brick/config.json) file. When any file under [`__brick__`](brick/__brick__/) is changed.
 
 ### Creating a Pull Request
 

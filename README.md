@@ -34,15 +34,17 @@ _\* Learn more at [Flutter Starter App: Very Good Core & CLI][very_good_cli_blog
 
 1. Install a valid [Flutter SDK](https://docs.flutter.dev/get-started/install) in your local environment. Compatible Flutter SDK versions with [Very Good CLI][very_good_cli_link] can be found within the [Flutter release archive](https://docs.flutter.dev/release/archive), ensure it has a Dart version compatible with [Very Good CLI's Dart version constraint](https://github.com/VeryGoodOpenSource/very_good_cli/blob/main/pubspec.yaml).
 
-2. Install [Very Good CLI][very_good_cli_link]:
+2. [Install Very Good CLI](https://cli.vgv.dev/docs/overview#installing):
 
 ```sh
+# 💻 Install Very Good CLI from pub.dev
 dart pub global activate very_good_cli
 ```
 
 3. Generate a project using Very Good Core:
 
 ```sh
+# 🚀 Create a new project using Very Good Core
 very_good create flutter_app <project-name>
 ```
 
