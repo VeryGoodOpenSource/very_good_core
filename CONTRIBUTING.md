@@ -114,7 +114,7 @@ dart analyze --fatal-infos --fatal-warnings .
 
 💡 **Note**: Our repositories use [Very Good Analysis](https://github.com/VeryGoodOpenSource/very_good_analysis).
 
-7. Ensure you have a meaningful [semantic][conventional_commits_link] commit message.
+7. Ensure you have a meaningful [semantic](https://www.conventionalcommits.org/en/v1.0.0) commit message.
 
 8. Create the Pull Request with a meaningful description, linking to the original issue where possible.
 
