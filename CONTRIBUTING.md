@@ -1,6 +1,6 @@
 # 🦄 Contributing to Very Good Core
 
-This CONTRIBUTING file is for a developer that wants to modify or contribute to the package:project_uploader. If you are interested in solely generating a project using Very Good Core, please refer to the [README](README.md) file.
+This CONTRIBUTING file is for a developer that wants to modify or contribute to the Very Good Core template. If you are interested in solely generating a project using Very Good Core, please refer to the [README](README.md) file.
 
 ## Opening an issue
 

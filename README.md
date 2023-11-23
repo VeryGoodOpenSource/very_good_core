@@ -5,6 +5,8 @@
 
 Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄
 
+![coverage][coverage_badge]
+[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
 
 A Very Good Flutter Starter Project created by the Very Good Ventures Team 🦄
@@ -60,3 +62,15 @@ Where `<project-name>` is the name of your project.
 [very_good_ventures_link]: https://verygood.ventures/?utm_source=github&utm_medium=banner&utm_campaign=core
 [very_good_ventures_link_dark]: https://verygood.ventures/?utm_source=github&utm_medium=banner&utm_campaign=core#gh-dark-mode-only
 [very_good_ventures_link_light]: https://verygood.ventures/?utm_source=github&utm_medium=banner&utm_campaign=core#gh-light-mode-only
+[bloc_link]: https://bloclibrary.dev
+[flutter_cross_platform_link]: https://flutter.dev/docs/development/tools/sdk/release-notes/supported-platforms
+[flutter_flavors_link]: https://flutter.dev/docs/deployment/flavors
+[github_actions_link]: https://github.com/features/actions
+[internationalization_link]: https://flutter.dev/docs/development/accessibility-and-localization/internationalization
+[logging_link]: https://api.flutter.dev/flutter/dart-developer/log.html
+[null_safety_link]: https://flutter.dev/docs/null-safety
+[testing_link]: https://flutter.dev/docs/testing
+[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
+[very_good_cli_blog_link]: https://verygood.ventures/blog/flutter-starter-app-very-good-core-cli
+[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
+[coverage_badge]: coverage_badge.svg
