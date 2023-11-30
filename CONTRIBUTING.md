@@ -121,3 +121,30 @@ dart analyze --fatal-infos --fatal-warnings .
 9. Verify that all [status checks](https://github.com/VeryGoodOpenSource/very_good_core/actions/) are passing for your Pull Request once they have been approved to run by a maintainer.
 
 💡 **Note**: While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional work, tests, or other changes before your pull request can be accepted.
+
+
+## Releasing a new version
+
+1. Ensure your local `main` branch is up to date with the remote `main` branch:
+
+```sh
+git checkout main
+git pull origin main
+git status
+```
+
+2. Ensure the current pipeline is passing on the `main` branch, [here](https://github.com/VeryGoodOpenSource/very_good_core/actions/workflows/very_good_core.yaml?query=branch%3Amain).
+
+3. From the repository, run the script to release a new version:
+
+```sh
+./tool/release_ready.sh <new-version>
+
+git commit -m "chore: v<new-version>"
+```
+
+This script will:
+- Create a new branch named `chore/v<new-version>`
+- Update the version info on `brick/brick.yaml`
+- Update the version info on `brick/CHANGELOG.md`
+- Then commit those changes with the message `chore: v<new-version>`
