@@ -1,7 +1,7 @@
 # 0.5.1
 
 - feat: minify icon pngs ([#317](https://github.com/VeryGoodOpenSource/very_good_core/pull/317))
-- fix: templated project name for Release-production flavour ([#319](https://github.com/VeryGoodOpenSource/very_good_core/pull/319))
+- fix: templated project name for Release-production flavor ([#319](https://github.com/VeryGoodOpenSource/very_good_core/pull/319))
 
 # 0.5.0
 
