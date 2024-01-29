@@ -1,10 +1,15 @@
+# 0.5.1
+
+- feat: minify icon pngs ([#317](https://github.com/VeryGoodOpenSource/very_good_core/pull/317))
+- fix: templated project name for Release-production flavor ([#319](https://github.com/VeryGoodOpenSource/very_good_core/pull/319))
+
 # 0.5.0
 
 - feat: change launchMode on Android to singleTask ([#297](https://github.com/VeryGoodOpenSource/very_good_core/pull/297))
 - feat: add macOS platform support ([#299](https://github.com/VeryGoodOpenSource/very_good_core/pull/299))
 - refactor: remove generator script ([#306](https://github.com/VeryGoodOpenSource/very_good_core/pull/306))
 - docs: update semantic commit link ([#313](https://github.com/VeryGoodOpenSource/very_good_core/pull/313))
-- fix: regenerate ios directory  ([#310](https://github.com/VeryGoodOpenSource/very_good_core/pull/310))
+- fix: regenerate ios directory ([#310](https://github.com/VeryGoodOpenSource/very_good_core/pull/310))
 
 # 0.4.0
 
