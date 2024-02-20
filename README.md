@@ -2,7 +2,7 @@
 
 ## 🚶‍♂️ [Repository has moved](https://github.com/VeryGoodOpenSource/very_good_templates/tree/main/very_good_core)
 
-The Dart linter is now developed within the [Very Good Templates](https://github.com/VeryGoodOpenSource/very_good_templates) repository,
+The Very Good Core template is now developed within the [Very Good Templates](https://github.com/VeryGoodOpenSource/very_good_templates) repository,
 and can be found at https://github.com/dart-lang/sdk/tree/main/pkg/linter.
 
 Please file new issues on
